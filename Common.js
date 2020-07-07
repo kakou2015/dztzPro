@@ -36,11 +36,14 @@ function finish() {
     var inputs = document.getElementsByTagName('input');
 
     var res = {}
-    var uid = {}
+    var itemId = {}
+    var ledgerId = {}
     for (var i = 0; i < inputs.length; i++) {
         res[inputs[i].id] = inputs[i].value;
-        if (inputs[i].id == 'uid')
-            uid = inputs[i].value;
+        if (inputs[i].id == 'itemId')
+            itemId = inputs[i].value;
+        if (inputs[i].id == 'ledgerId')
+            ledgerId = inputs[i].value;
     }
 
     var textareas = document.getElementsByTagName('textarea');
@@ -50,7 +53,7 @@ function finish() {
 
     console.log(res);
     
-    var data = { "name": "save", "uid": uid, "content": JSON.stringify(res) };
+    var data = { "name": "save", "itemId": itemId, "ledgerId": ledgerId, "content": JSON.stringify(res) };
     $.ajax({
         type: "POST",
         url: "Server.ashx",
@@ -70,7 +73,12 @@ $(document).ready(function () {
 //{
     //@Frank.
 //    // use ajax to get json data, and fill data to template.
-//    }
+    //    }
+    var jsonCtrl = document.getElementById('jsonContent')
+    var jsonContent = decodeURI(jsonCtrl.value);
+    alert(jsonContent);
+    var json = JSON.parse(jsonContent);
+    alert(json);
 
     var inputs = document.getElementsByTagName('input');
 
@@ -78,7 +86,7 @@ $(document).ready(function () {
     var uid = {}
     for (var i = 0; i < inputs.length; i++) {
         res[inputs[i].id] = inputs[i].value;
-        if (inputs[i].id == 'uid')
+        if (inputs[i].id == 'itemId')
             uid = inputs[i].value;
     }
 
@@ -94,4 +102,4 @@ function getUrlParam(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
     var url = window.location.search.substr(1).match(reg);  //匹配目标参数
     if (url != null) return unescape(url[2]); return null; //返回参数值
-}]
+}

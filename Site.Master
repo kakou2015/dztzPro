@@ -26,12 +26,11 @@
 </head>
 <body>
     <aside class="Hui-admin-aside-wrapper">
-        <div class="Hui-admin-logo-wrapper">
+         <div class="Hui-admin-logo-wrapper">
             <a class="logo navbar-logo" href="./">
                 <i class="va-m iconpic global-logo"></i>
-                <span class="va-m">电子台帐</span>
-                <button onclick="navTo('addNode.aspx')" value="Add node"></button>
             </a>
+            <a href ="addNode.aspx">电子台账 </a>
         </div>
         <div class="Hui-admin-menu-dropdown bk_2">
             <dl id="menu-home" class="Hui-menu">
@@ -54,10 +53,10 @@
                                               <a href ="task.aspx?action=1&ledgerNodeId=3">填写 </a>
                                           </li>
                                           <li>
-                                              <a href="task.aspx?action=2&ledgerNodeId=3">修改</a>
+                                              <a href="task.aspx?action=2&ledgerNodeId=3&itemId=<%= itemId%>">修改</a>
                                           </li>
                                           <li>
-                                              <a href = "search.aspx?ledgerNodeId=1"> 查询 </ a >
+                                              <a href = "search.aspx?ledgerNodeId=3"> 查询 </ a >
                                           </li>
                                     </ul>
                                 </dd>
@@ -86,7 +85,18 @@
             <div class="navbar">
                 <div class="container-fluid clearfix">
                     <nav id="Hui-userbar" class="nav navbar-nav navbar-userbar">
+                        <p class="text-c">
+                        </p>
                         <ul class="clearfix">
+                            <li>
+                                <a class="btn btn-success radius mr-20" style="line-height: 1em; margin-top: 3px;" href="#" onclick="finish();">
+                                    <i class="icon-ok"></i>保存
+                                </a>
+                                <a class="btn btn-success radius mr-20" style="line-height: 1em; margin-top: 3px;" href="#" onclick="finish();">
+                                    <i class="icon-ok"></i>结束填写
+                                </a>
+                                <input type="hidden" id="itemId" value=<%= itemId%>>
+                            </li>
                             <li>菜单颜色</li>
                             <li id="Hui-skin" class="dropDown dropDown_hover right">
                                 <a href="javascript:;" class="dropDown_A" title="导航栏换肤"><i class="Hui-iconfont" style="font-size: 18px">&#xe62a;</i></a>
@@ -105,12 +115,6 @@
             </div>
         </header>
 
-
-        <asp:ContentPlaceHolder ID="MainContent" runat="server">
-        </asp:ContentPlaceHolder>
-
-
-
         <!--_footer 作为公共模版分离出去-->
         <script type="text/javascript" src="./lib/jquery/1.9.1/jquery.min.js"></script>
         <script type="text/javascript" src="./lib/layer/3.1.1/layer.js"></script>
@@ -121,9 +125,14 @@
         <!--请在下方写此页面业务相关的脚本-->
         <script type="text/javascript" src="./lib/laypage/1.2/laypage.js"></script>
         <script type="text/javascript" src="./static/business/js/main.js"></script>
-        <footer class="Hui-navbar">
-        </footer>
+
         <!--/请在上方写此页面业务相关的脚本-->
         <script type="text/javascript" src="Common.js"></script>
+
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+
+
+
 </body>
 </html>

@@ -18,16 +18,16 @@ namespace dztzPro
             // Use ajax to get/post/update/delete data.
             //https://api.jquery.com/jQuery.ajax/
             //$.ajax('Server.ashx',)
-            if (!string.IsNullOrEmpty(context.Request["uid"]))
+            if (!string.IsNullOrEmpty(context.Request["itemId"]))
             {
                 try
                 {
-                    int id = Convert.ToInt32(context.Request["uid"]);
+                    int id = Convert.ToInt32(context.Request["itemId"]);
                     
                     if (id > 0)
                     {
                         DztzDataContext dztz = new DztzDataContext();
-                        var ledgerNodeItem = dztz.LedgerNodeItems.Single<LedgerNodeItem>(s => s.Id == id);
+                        var ledgerNodeItem = dztz.LedgerNodeItems.SingleOrDefault<LedgerNodeItem>(s => s.Id == id);
                         if (ledgerNodeItem != null) // update row
                         {
                             if (context.Request["name"] == "save")
@@ -49,7 +49,7 @@ namespace dztzPro
                         }
                         else // insert new row
                         {
-                            ledgerNodeItem = dztz.LedgerNodeItems.SingleOrDefault<LedgerNodeItem>(s => s.Id == id);
+                            ledgerNodeItem = new LedgerNodeItem();
                             if (context.Request["name"] == "save")
                             {
                                 ledgerNodeItem.Status = 0;
@@ -62,9 +62,9 @@ namespace dztzPro
                             }
 
                             string data = HttpUtility.UrlDecode(context.Request["content"].ToString(), Encoding.UTF8);
-                            ledgerNodeItem.LedgerNodeId = 1;//current ledgernode id
+                            ledgerNodeItem.LedgerNodeId = Convert.ToInt32(context.Request["ledgerId"]);//current ledgernode id
                             ledgerNodeItem.CreateUser = "";//current login user
-                            ledgerNodeItem.ModifyTime = DateTime.Now.ToString();
+                            ledgerNodeItem.CreateTime = DateTime.Now.ToString();
                             ledgerNodeItem.ModifyTime = DateTime.Now.ToString();
                             ledgerNodeItem.ModifyUser = "";//current login user
                             ledgerNodeItem.TemplateValue = data;

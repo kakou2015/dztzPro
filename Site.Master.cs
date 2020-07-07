@@ -9,6 +9,7 @@ namespace dztzPro
 {
     public partial class SiteMaster : MasterPage
     {
+        public string itemId = "1";
         protected void Page_Load(object sender, EventArgs e)
         {
 
