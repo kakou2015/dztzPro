@@ -80,7 +80,6 @@
                 道送电位&emsp;&emsp;<input type="text" id="five3" value=""/>
                 道断电位&emsp;&emsp;隔离开关钥匙<input type="text" id="five4" value="" size="2"/>
                 把&emsp;&emsp;
-                <a href="javascript:save5()" class="btn-link"> 保存</a>
               </td>
             </tr>
             <tr>

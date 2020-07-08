@@ -7,7 +7,6 @@
                 <td class="auto-style1">账簿名：&nbsp;
                     <asp:TextBox ID="LedgerNodeName" runat="server" Height="20px" Width="500px" TabIndex="10"></asp:TextBox>
                 </td>
-                <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style1">账簿类别：&nbsp;&nbsp;
@@ -20,17 +19,18 @@
                     <asp:DropDownList ID="StationList" runat="server" Height="30px" Width="500px" TabIndex="11">
                     </asp:DropDownList>
                 </td>
-                <td class="auto-style1">&nbsp;&nbsp;访问权限：
+            </tr>
+            <tr>
+               <td class="auto-style1">访问权限：
                     <asp:DropDownList ID="AccessLevelList" runat="server" Height="30px" Width="50px" TabIndex="12">
                     </asp:DropDownList>
                 </td>
             </tr>
-            <br />
-            <br />
-            <br />
             <tr>
                 <td class="auto-style1">摸板路径：<asp:FileUpload ID="FileUploadCtrl" runat="server" Height="30px" Width="600px" TabIndex="13" />
                 </td>
+            </tr>
+            <tr>
                 <td>
                     <asp:Button ID="UploadBttn" runat="server" Text="上传" OnClick="Upload_Click" Height="30px" Width="80px" Style="margin-left: 57px" TabIndex="14" />
                 </td>
