@@ -37,8 +37,7 @@
 </head>
 <body>
 	<%= LeftMenuContent %>
-
-	<div class="Hui-admin-aside-mask"></div>
+    <div class="Hui-admin-aside-mask"></div>
 	<!--/_menu 作为公共模版分离出去-->
 
 	<div class="Hui-admin-dislpayArrow">
