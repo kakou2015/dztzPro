@@ -2,16 +2,16 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataContext">
   <DataContextMoniker Name="/DataContextDataContext" />
   <nestedChildShapes>
-    <classShape Id="454b0ed5-fd07-4401-a681-75c48e11cc20" absoluteBounds="0.75, 0.75, 2, 3.1170068359375005">
-      <DataClassMoniker Name="/DataContextDataContext/ledgerNode" />
+    <classShape Id="7b9cb9e1-654e-4604-a2bf-58ccde8e3f57" absoluteBounds="0.75, 0.75, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/DataContextDataContext/LedgerNode" />
       <nestedChildShapes>
-        <elementListCompartment Id="77b5ca1f-229c-44a4-9df2-4a81aaedb3a1" absoluteBounds="0.765, 1.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="3b5cd673-2e30-4cd2-86aa-69e1530aef9a" absoluteBounds="0.765, 1.21, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="1787f645-c3d7-4026-8aba-11db9267d474" absoluteBounds="3.75, 0.75, 2, 2.3478011067708335">
+    <classShape Id="44470f87-97b9-4eab-87a5-6256317e3b19" absoluteBounds="3.75, 0.75, 2, 2.5401025390625005">
       <DataClassMoniker Name="/DataContextDataContext/LedgerNodeItem" />
       <nestedChildShapes>
-        <elementListCompartment Id="8b218ba9-cc30-419e-971b-fde635c9fdfe" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="b557cfb5-e1b5-4656-b62c-a0f1f7149b10" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

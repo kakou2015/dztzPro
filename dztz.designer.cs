@@ -30,9 +30,9 @@ namespace dztzPro
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertledgerNode(ledgerNode instance);
-    partial void UpdateledgerNode(ledgerNode instance);
-    partial void DeleteledgerNode(ledgerNode instance);
+    partial void InsertLedgerNode(LedgerNode instance);
+    partial void UpdateLedgerNode(LedgerNode instance);
+    partial void DeleteLedgerNode(LedgerNode instance);
     partial void InsertLedgerNodeItem(LedgerNodeItem instance);
     partial void UpdateLedgerNodeItem(LedgerNodeItem instance);
     partial void DeleteLedgerNodeItem(LedgerNodeItem instance);
@@ -68,11 +68,11 @@ namespace dztzPro
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<ledgerNode> ledgerNodes
+		public System.Data.Linq.Table<LedgerNode> LedgerNodes
 		{
 			get
 			{
-				return this.GetTable<ledgerNode>();
+				return this.GetTable<LedgerNode>();
 			}
 		}
 		
@@ -86,14 +86,16 @@ namespace dztzPro
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ledgerNode")]
-	public partial class ledgerNode : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class LedgerNode : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _Id;
 		
-		private string _LedgerName;
+		private string _LedgerNodeType;
+		
+		private string _LedgerNodeName;
 		
 		private string _Station;
 		
@@ -121,8 +123,10 @@ namespace dztzPro
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void OnLedgerNameChanging(string value);
-    partial void OnLedgerNameChanged();
+    partial void OnLedgerNodeTypeChanging(string value);
+    partial void OnLedgerNodeTypeChanged();
+    partial void OnLedgerNodeNameChanging(string value);
+    partial void OnLedgerNodeNameChanged();
     partial void OnStationChanging(string value);
     partial void OnStationChanged();
     partial void OnAccessLevelChanging(int value);
@@ -145,7 +149,7 @@ namespace dztzPro
     partial void OnTemplateContentChanged();
     #endregion
 		
-		public ledgerNode()
+		public LedgerNode()
 		{
 			OnCreated();
 		}
@@ -170,22 +174,42 @@ namespace dztzPro
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LedgerName", DbType="NVarChar(250)")]
-		public string LedgerName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LedgerNodeType", DbType="NVarChar(250)")]
+		public string LedgerNodeType
 		{
 			get
 			{
-				return this._LedgerName;
+				return this._LedgerNodeType;
 			}
 			set
 			{
-				if ((this._LedgerName != value))
+				if ((this._LedgerNodeType != value))
 				{
-					this.OnLedgerNameChanging(value);
+					this.OnLedgerNodeTypeChanging(value);
 					this.SendPropertyChanging();
-					this._LedgerName = value;
-					this.SendPropertyChanged("LedgerName");
-					this.OnLedgerNameChanged();
+					this._LedgerNodeType = value;
+					this.SendPropertyChanged("LedgerNodeType");
+					this.OnLedgerNodeTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LedgerNodeName", DbType="NVarChar(250)")]
+		public string LedgerNodeName
+		{
+			get
+			{
+				return this._LedgerNodeName;
+			}
+			set
+			{
+				if ((this._LedgerNodeName != value))
+				{
+					this.OnLedgerNodeNameChanging(value);
+					this.SendPropertyChanging();
+					this._LedgerNodeName = value;
+					this.SendPropertyChanged("LedgerNodeName");
+					this.OnLedgerNodeNameChanged();
 				}
 			}
 		}
@@ -421,7 +445,7 @@ namespace dztzPro
 		
 		private int _LedgerNodeId;
 		
-		private string _TemplateValue;
+		private string _LedgerNodeName;
 		
 		private string _CreateUser;
 		
@@ -433,6 +457,8 @@ namespace dztzPro
 		
 		private int _Status;
 		
+		private string _TemplateValue;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -441,8 +467,8 @@ namespace dztzPro
     partial void OnIdChanged();
     partial void OnLedgerNodeIdChanging(int value);
     partial void OnLedgerNodeIdChanged();
-    partial void OnTemplateValueChanging(string value);
-    partial void OnTemplateValueChanged();
+    partial void OnLedgerNodeNameChanging(string value);
+    partial void OnLedgerNodeNameChanged();
     partial void OnCreateUserChanging(string value);
     partial void OnCreateUserChanged();
     partial void OnCreateTimeChanging(string value);
@@ -453,6 +479,8 @@ namespace dztzPro
     partial void OnModifyTimeChanged();
     partial void OnStatusChanging(int value);
     partial void OnStatusChanged();
+    partial void OnTemplateValueChanging(string value);
+    partial void OnTemplateValueChanged();
     #endregion
 		
 		public LedgerNodeItem()
@@ -500,22 +528,22 @@ namespace dztzPro
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TemplateValue", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string TemplateValue
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LedgerNodeName", DbType="NVarChar(250)")]
+		public string LedgerNodeName
 		{
 			get
 			{
-				return this._TemplateValue;
+				return this._LedgerNodeName;
 			}
 			set
 			{
-				if ((this._TemplateValue != value))
+				if ((this._LedgerNodeName != value))
 				{
-					this.OnTemplateValueChanging(value);
+					this.OnLedgerNodeNameChanging(value);
 					this.SendPropertyChanging();
-					this._TemplateValue = value;
-					this.SendPropertyChanged("TemplateValue");
-					this.OnTemplateValueChanged();
+					this._LedgerNodeName = value;
+					this.SendPropertyChanged("LedgerNodeName");
+					this.OnLedgerNodeNameChanged();
 				}
 			}
 		}
@@ -616,6 +644,26 @@ namespace dztzPro
 					this._Status = value;
 					this.SendPropertyChanged("Status");
 					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TemplateValue", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string TemplateValue
+		{
+			get
+			{
+				return this._TemplateValue;
+			}
+			set
+			{
+				if ((this._TemplateValue != value))
+				{
+					this.OnTemplateValueChanging(value);
+					this.SendPropertyChanging();
+					this._TemplateValue = value;
+					this.SendPropertyChanged("TemplateValue");
+					this.OnTemplateValueChanged();
 				}
 			}
 		}

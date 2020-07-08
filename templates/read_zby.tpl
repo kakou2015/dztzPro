@@ -2,7 +2,7 @@
   <article class="Hui-admin-content clearfix">
     <div class="panel">
       <div class="panel-body">
-        <div class="text-c f-24">{$rs[0]['station']}{$title}</div>
+        <div class="text-c f-24"></div>
         <table class="table table-border table-bordered table-bg mt-20">
           <style type="text/css">
             {literal}

@@ -15,7 +15,7 @@ GO
 CREATE TABLE [dbo].[LedgerNodeItem](
 	[Id] [int] NOT NULL IDENTITY(1,1),
 	[LedgerNodeId] [int] NOT NULL,
-	[LedgerName] [nvarchar](250) NULL,
+	[LedgerNodeName] [nvarchar](250) NULL,
 	[CreateUser] [nvarchar](250) NULL,
 	[CreateTime] [nvarchar](250) NULL,
 	[ModifyUser] [nvarchar](250) NULL,
@@ -31,7 +31,7 @@ CREATE TABLE [dbo].[LedgerNodeItem](
 GO
 
 /****** Object:  Table [dbo].[ledgerNode]    Script Date: 7/7/2020 9:36:26 AM ******/
-DROP TABLE [dbo].[ledgerNode]
+DROP TABLE [dbo].[LedgerNode]
 GO
 
 /****** Object:  Table [dbo].[ledgerNode]    Script Date: 7/7/2020 9:36:26 AM ******/
@@ -41,9 +41,10 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[ledgerNode](
+CREATE TABLE [dbo].[LedgerNode](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[LedgerName] [nvarchar](250) NULL,
+	[LedgerNodeType] [nvarchar](250) NULL,
+	[LedgerNodeName] [nvarchar](250) NULL,
 	[Station] [nvarchar](250) NULL,
 	[AccessLevel] [int] NOT NULL,
 	[CreateUser] [nvarchar](250) NULL,
@@ -54,7 +55,7 @@ CREATE TABLE [dbo].[ledgerNode](
 	[Reserved2] [nvarchar](250) NULL,
 	[Reserved3] [nvarchar](250) NULL,
 	[TemplateContent] [text] NULL,
- CONSTRAINT [PK_ledgerNode] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_LedgerNode] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]

@@ -18,15 +18,15 @@ namespace dztzPro
             // Use ajax to get/post/update/delete data.
             //https://api.jquery.com/jQuery.ajax/
             //$.ajax('Server.ashx',)
-            if (!string.IsNullOrEmpty(context.Request["itemId"]))
+            if (!string.IsNullOrEmpty(context.Request["ledgerItemId"]))
             {
                 try
                 {
-                    int id = Convert.ToInt32(context.Request["itemId"]);
-                    
+                    int id = Convert.ToInt32(context.Request["ledgerItemId"]);
+
+                    DztzDataContext dztz = new DztzDataContext();
                     if (id > 0)
                     {
-                        DztzDataContext dztz = new DztzDataContext();
                         var ledgerNodeItem = dztz.LedgerNodeItems.SingleOrDefault<LedgerNodeItem>(s => s.Id == id);
                         if (ledgerNodeItem != null) // update row
                         {
@@ -47,34 +47,35 @@ namespace dztzPro
                             ledgerNodeItem.TemplateValue = data;
                             dztz.SubmitChanges();
                         }
-                        else // insert new row
+                        else
                         {
-                            ledgerNodeItem = new LedgerNodeItem();
-                            if (context.Request["name"] == "save")
-                            {
-                                ledgerNodeItem.Status = 0;
-                                context.Response.Write("save ok");
-                            }
-                            else if (context.Request["name"] == "finish")
-                            {
-                                ledgerNodeItem.Status = 1;
-                                context.Response.Write("finish ok");
-                            }
-
-                            string data = context.Request["content"];
-                            ledgerNodeItem.LedgerNodeId = Convert.ToInt32(context.Request["ledgerId"]);//current ledgernode id
-                            ledgerNodeItem.CreateUser = "";//current login user
-                            ledgerNodeItem.CreateTime = DateTime.Now.ToString();
-                            ledgerNodeItem.ModifyTime = DateTime.Now.ToString();
-                            ledgerNodeItem.ModifyUser = "";//current login user
-                            ledgerNodeItem.TemplateValue = data;
-                            dztz.LedgerNodeItems.InsertOnSubmit(ledgerNodeItem);
-                            dztz.SubmitChanges();
+                            context.Response.Write("找不到需要更新的账簿。");
                         }
                     }
-                    else
+                    else // insert new row
                     {
-                        context.Response.Write("id must be bigger than 0.");
+                        var ledgerNodeItem = new LedgerNodeItem();
+                        if (context.Request["name"] == "save")
+                        {
+                            ledgerNodeItem.Status = 0;
+                            context.Response.Write("save ok");
+                        }
+                        else if (context.Request["name"] == "finish")
+                        {
+                            ledgerNodeItem.Status = 1;
+                            context.Response.Write("finish ok");
+                        }
+
+                        string data = context.Request["content"];
+                        ledgerNodeItem.LedgerNodeId = Convert.ToInt32(context.Request["ledgerNodeId"]);//current ledgernode id                        
+                        ledgerNodeItem.LedgerNodeName = dztz.LedgerNodes.SingleOrDefault<LedgerNode>(s => s.Id == ledgerNodeItem.LedgerNodeId).LedgerNodeName;
+                        ledgerNodeItem.CreateUser = "";//current login user
+                        ledgerNodeItem.CreateTime = DateTime.Now.ToString();
+                        ledgerNodeItem.ModifyTime = DateTime.Now.ToString();
+                        ledgerNodeItem.ModifyUser = "";//current login user
+                        ledgerNodeItem.TemplateValue = data;
+                        dztz.LedgerNodeItems.InsertOnSubmit(ledgerNodeItem);
+                        dztz.SubmitChanges();
                     }
                 }
                 catch(Exception e)

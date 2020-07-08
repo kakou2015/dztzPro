@@ -789,6 +789,9 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="dztz.cs">
+      <DependentUpon>dztz.dbml</DependentUpon>
+    </Compile>
     <Compile Include="dztz.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -32,7 +32,7 @@
             </a>
             <a href ="addNode.aspx">电子台账 </a>
         </div>
-        <div class="Hui-admin-menu-dropdown bk_2">
+<%--        <div class="Hui-admin-menu-dropdown bk_2">
             <dl id="menu-home" class="Hui-menu">
                 <dd class="Hui-menu-item-frist">
                     <ul>
@@ -50,13 +50,13 @@
                                 <dd class="Hui-menu-item">
                                     <ul>
                                          <li>
-                                              <a href ="task.aspx?action=1&ledgerNodeId=3">填写 </a>
+                                              <a href ="task.aspx?action=1&ledgerNodeId=6">填写 </a>
                                           </li>
                                           <li>
-                                              <a href="task.aspx?action=2&ledgerNodeId=3&itemId=<%= itemId%>">修改</a>
+                                              <a href="task.aspx?action=2&ledgerNodeId=6">修改</a>
                                           </li>
                                           <li>
-                                              <a href = "search.aspx?ledgerNodeId=3"> 查询 </ a >
+                                              <a href = "search.aspx?ledgerNodeId=6"> 查询 </a>
                                           </li>
                                     </ul>
                                 </dd>
@@ -65,10 +65,7 @@
                     </ul>
                 </dd>
             </dl>
-
-
-
-        </div>
+        </div>--%>
     </aside>
     <div class="Hui-admin-aside-mask"></div>
     <!--/_menu 作为公共模版分离出去-->
@@ -89,13 +86,12 @@
                         </p>
                         <ul class="clearfix">
                             <li>
-                                <a class="btn btn-success radius mr-20" style="line-height: 1em; margin-top: 3px;" href="#" onclick="finish();">
+                                <a class="btn btn-success radius mr-20" style="line-height: 1em; margin-top: 3px;" href="#" onclick="save();">
                                     <i class="icon-ok"></i>保存
                                 </a>
                                 <a class="btn btn-success radius mr-20" style="line-height: 1em; margin-top: 3px;" href="#" onclick="finish();">
                                     <i class="icon-ok"></i>结束填写
                                 </a>
-                                <input type="hidden" id="itemId" value=<%= itemId%>>
                             </li>
                             <li>菜单颜色</li>
                             <li id="Hui-skin" class="dropDown dropDown_hover right">

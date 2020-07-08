@@ -15,9 +15,8 @@ namespace dztzPro
             if (!IsPostBack)
             {
                 // 第一次加载
-                StationList.Items.Add("aaaa");
-                StationList.Items.Add("bbbb");
-                StationList.Items.Add("cccc");
+                StationList.Items.Add("安康车务段");
+                LedgerTypeList.Items.Add("岗位交接簿");
                 AccessLevelList.Items.Add("1");
                 AccessLevelList.Items.Add("2");
                 AccessLevelList.Items.Add("3");
@@ -64,7 +63,8 @@ namespace dztzPro
         protected void Upload_Click(object sender, EventArgs e)
         {
             var station = StationList.SelectedValue;
-            var ledgerName = LedgerName.Text;
+            var ledgerNodeType = LedgerTypeList.SelectedValue;
+            var ledgerNodeName = LedgerNodeName.Text;
             var accessLevel = Convert.ToInt32(AccessLevelList.SelectedValue);
 
             if (FileUploadCtrl.HasFile)
@@ -74,13 +74,18 @@ namespace dztzPro
                 string templateContent = sr.ReadToEnd();
                 sr.Dispose();
                 DztzDataContext dbContext = new DztzDataContext();
-                dbContext.ledgerNodes.InsertOnSubmit(new ledgerNode()
+                string time = DateTime.Now.ToString();
+                dbContext.LedgerNodes.InsertOnSubmit(new LedgerNode()
                 {
                     Station = station,
+                    LedgerNodeType = ledgerNodeType,
+                    LedgerNodeName = ledgerNodeName,
                     AccessLevel = accessLevel,
-                    CreateTime = DateTime.Now.ToString(),
-                    LedgerName = ledgerName,
-                   TemplateContent = templateContent
+                    CreateTime = time,
+                    CreateUser = "frank",
+                    ModifyTime = time,
+                    ModifyUser = "frank",
+                    TemplateContent = templateContent
                 });
 
                 dbContext.SubmitChanges();
