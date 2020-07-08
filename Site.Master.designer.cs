@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace dztzPro
-{
-
-
-    public partial class SiteMaster
-    {
-
+namespace dztzPro {
+    
+    
+    public partial class SiteMaster {
+        
         /// <summary>
         /// MainContent control.
         /// </summary>

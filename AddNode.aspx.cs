@@ -27,35 +27,8 @@ namespace dztzPro
             {
                 // post back, 用户点击了Upload 按钮。
 
-                
                 // @Frank to do,
                 // 根据ledgerNodes 数据表 生成左边的菜单。参考Site.Master.
-                //    < dl id = "menu-article" class="Hui-menu">
-                //    <dt class="Hui-menu-title">岗位交接簿<i class="Hui-iconfont Hui-admin-menu-dropdown-arrow">&#xe6d5;</i></dt>
-                //    <dd class="Hui-menu-item">
-                //        <ul>
-                //            <li>
-                //                <dl class="Hui-menu">
-                //                    <dt class="Hui-menu-title">车站值班员交接班簿<i class="Hui-iconfont Hui-admin-menu-dropdown-arrow">&#xe6d5;</i></dt>
-                //                    <dd class="Hui-menu-item">
-                //                        <ul>
-                //                            <li>
-                //                                <a href = "task.aspx?action=write&ledgerNodeId=1" > 填写 </ a >
-                //                            </ li >
-                //                            < li >
-                //                                < a href="task.aspx?action=modify&ledgerNodeId=1">修改</a>
-                //                            </li>
-                //                            <li>
-                //                                <a href = "task.aspx?action=search&ledgerNodeId=1" > 查询 </ a >
-                //                            </ li >
-                //                        </ ul >
-                //                    </ dd >
-                //                </ dl >
-                //            </ li >
-                //        </ ul >
-                //    </ dd >
-                //</ dl >
-
             }
 
         }
