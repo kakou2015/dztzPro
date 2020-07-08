@@ -58,6 +58,10 @@ String.prototype.replaceAll = function (FindText, RepText) {
 }
 $(document).ready(function () {
 
+    window.setInterval(function () {
+        $('#currentTime').html(new Date().format('yyyy-MM-dd h:m:s'));
+    }, 1000);
+
 //    if (getUrlParam('action') == '2' && window.location is task.aspx)
 //{
     //@Frank.
@@ -96,3 +100,28 @@ function getUrlParam(name) {
     var url = window.location.search.substr(1).match(reg);  //匹配目标参数
     if (url != null) return unescape(url[2]); return null; //返回参数值
 }
+
+
+Date.prototype.format = function (format) {
+    var o = {
+        "M+": this.getMonth() + 1, //month
+        "d+": this.getDate(), //day
+        "h+": this.getHours(), //hour
+        "m+": this.getMinutes(), //minute
+        "s+": this.getSeconds(), //second
+        "q+": Math.floor((this.getMonth() + 3) / 3), //quarter
+        "S": this.getMilliseconds() //millisecond
+    }
+    if (/(y+)/.test(format)) format = format.replace(RegExp.$1,
+        (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o) if (new RegExp("(" + k + ")").test(format))
+        format = format.replace(RegExp.$1,
+            RegExp.$1.length == 1 ? o[k] :
+                ("00" + o[k]).substr(("" + o[k]).length));
+    return format;
+}
+
+
+
+//版权声明：本文为CSDN博主「蒙奇·D·伊丽莎白」的原创文章，遵循CC 4.0 BY - SA版权协议，转载请附上原文出处链接及本声明。
+//原文链接：https://blog.csdn.net/xif3681/article/details/81772432
