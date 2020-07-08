@@ -6,3 +6,14 @@
     <input type="hidden" id="ledgerNodeId" value="<%= LedgerNodeId %>" />
 
 </asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="HeaderContent" runat="server">
+    <li>
+        <a class="btn btn-primary radius mr-20" style="line-height: 1.8em; margin-top: 3px;" href="#" onclick="save();">
+            <i class="icon-ok"></i>保存
+        </a>
+        <a class="btn btn-success radius mr-20" style="line-height: 1.8em; margin-top: 3px;" href="#" onclick="finish();">
+            结束填写
+        </a>
+    </li>
+
+</asp:Content>
