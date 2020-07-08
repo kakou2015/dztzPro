@@ -3,7 +3,6 @@
   $(document).ready(function () {
   var rqsj = document.getElementById('rqsj');
   rqsj.value = (new Date().format('yyyy-MM-dd h:m:s'));
-  alert(rqsj.value)
   });
 </script>
   <article class="Hui-admin-content clearfix">
@@ -177,6 +176,7 @@
                 值班员：<span class="qd">
                 <input id="ten1" title="请输入身份证最后6位" type="text" size="6"/>
                 <a href="javascript:zjpost('ten1')" class="btn-link"> 证件签到</a>
+                </span>
               </td>
               <td>
                 助理值班员（内勤）：<span class="qd">
