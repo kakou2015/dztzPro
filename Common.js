@@ -39,11 +39,15 @@ function finish() {
     var itemId = {}
     var ledgerId = {}
     for (var i = 0; i < inputs.length; i++) {
-        res[inputs[i].id] = inputs[i].value;
         if (inputs[i].id == 'itemId')
             itemId = inputs[i].value;
-        if (inputs[i].id == 'ledgerId')
+        else if (inputs[i].id == 'ledgerId') {
             ledgerId = inputs[i].value;
+            continue;
+        }
+        else if (inputs[i].id == 'jsonContent')
+            continue;
+        res[inputs[i].id] = inputs[i].value;
     }
 
     var textareas = document.getElementsByTagName('textarea');
@@ -66,7 +70,10 @@ function finish() {
         }
     })
 }
-
+String.prototype.replaceAll = function (FindText, RepText) {
+    regExp = new RegExp(FindText, "g");
+    return this.replace(regExp, RepText);
+}
 $(document).ready(function () {
 
 //    if (getUrlParam('action') == '2' && window.location is task.aspx)
@@ -75,24 +82,28 @@ $(document).ready(function () {
 //    // use ajax to get json data, and fill data to template.
     //    }
     var jsonCtrl = document.getElementById('jsonContent')
-    var jsonContent = decodeURI(jsonCtrl.value);
-    alert(jsonContent);
-    var json = JSON.parse(jsonContent);
-    alert(json);
+    if (jsonCtrl != null) {
+        var jsonContent = decodeURIComponent(jsonCtrl.value);
+        var json = JSON.parse(jsonContent);
+        console.log(json);
 
-    var inputs = document.getElementsByTagName('input');
+        var inputs = document.getElementsByTagName('input');
 
-    var res = {}
-    var uid = {}
-    for (var i = 0; i < inputs.length; i++) {
-        res[inputs[i].id] = inputs[i].value;
-        if (inputs[i].id == 'itemId')
-            uid = inputs[i].value;
-    }
+        var itemId = document.getElementById('itemId')
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].id in json) {
+                inputs[i].value = json[inputs[i].id];
+                if (inputs[i].id == 'itemId')
+                    itemId.value = inputs[i].value;
+            }
+        }
 
-    var textareas = document.getElementsByTagName('textarea');
-    for (var i = 0; i < textareas.length; i++) {
-        res[textareas[i].id] = textareas[i].value;
+        var textareas = document.getElementsByTagName('textarea');
+        for (var i = 0; i < textareas.length; i++) {
+            if (textareas[i].id in json) {
+                textareas[i].value = json[textareas[i].id];
+            }
+        }
     }
 });
 

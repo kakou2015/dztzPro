@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace dztzPro
-{
-
-
-    public partial class Search
-    {
-
+namespace dztzPro {
+    
+    
+    public partial class Search {
+        
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -22,23 +20,23 @@ namespace dztzPro
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
-        /// SqlDataSource1 control.
+        /// SqlDataSourceLedgerItems control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceLedgerItems;
+        
         /// <summary>
-        /// GridView1 control.
+        /// LedgerItemsGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView LedgerItemsGridView;
     }
 }

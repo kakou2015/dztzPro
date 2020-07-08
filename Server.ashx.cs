@@ -41,7 +41,7 @@ namespace dztzPro
                                 context.Response.Write("finish ok");
                             }
 
-                            string data = HttpUtility.UrlDecode(context.Request["content"].ToString(), Encoding.UTF8);
+                            string data = context.Request["content"];
                             ledgerNodeItem.ModifyTime = DateTime.Now.ToString();
                             ledgerNodeItem.ModifyUser = "";//current login user
                             ledgerNodeItem.TemplateValue = data;
@@ -61,7 +61,7 @@ namespace dztzPro
                                 context.Response.Write("finish ok");
                             }
 
-                            string data = HttpUtility.UrlDecode(context.Request["content"].ToString(), Encoding.UTF8);
+                            string data = context.Request["content"];
                             ledgerNodeItem.LedgerNodeId = Convert.ToInt32(context.Request["ledgerId"]);//current ledgernode id
                             ledgerNodeItem.CreateUser = "";//current login user
                             ledgerNodeItem.CreateTime = DateTime.Now.ToString();

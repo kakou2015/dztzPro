@@ -31,14 +31,13 @@ namespace dztzPro
                 else
                 {
                     // display template to display the data.
-                    //@Frank ,refine common.js
 
                     var nodeItemId = Convert.ToInt32(Request["itemId"]);
 
                     var nodeItem = context.LedgerNodeItems.SingleOrDefault<LedgerNodeItem>(ln => ln.Id == nodeItemId);
                     if (nodeItem != null)
                     {
-                        JsonContent = HttpUtility.UrlEncode(nodeItem.TemplateValue, Encoding.UTF8);;
+                        JsonContent = HttpUtility.UrlEncode(nodeItem.TemplateValue,Encoding.UTF8);
                     }
 
                     //前端用 $('#jsonContent').value() 可以获取jsonContent 的string，然后参照ItemDetail.aspx,把数据赋值给table。

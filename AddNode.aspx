@@ -37,7 +37,7 @@
         <br />
         <br />
         <br />
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource2" Height="16px" Width="1198px">
+        <asp:GridView ID="LedgerNodeGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource2" Height="16px" Width="1198px">
             <Columns>
                 <asp:BoundField DataField="Id" HeaderText="序号" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
                 <asp:BoundField DataField="LedgerName" HeaderText="账簿名称" SortExpression="LedgerName" />
@@ -50,6 +50,5 @@
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dztzConnectionString %>" SelectCommand="SELECT DISTINCT [Id], [LedgerName], [Station], [AccessLevel], [CreateUser], [CreateTime], [ModifyUser], [ModifyTime] FROM [ledgerNode] ORDER BY [Id] DESC, [ModifyTime] DESC, [CreateTime] DESC"></asp:SqlDataSource>
-        <asp:Button ID="Button1" runat="server" Text="Save" />
     </form>
 </asp:Content>

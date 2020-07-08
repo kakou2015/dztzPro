@@ -26,26 +26,9 @@ namespace dztzPro
             }
             else
             {
-                // post back, 用户点击了save 按钮。
-                var ledgerName = LedgerName.Text;
-                var itemNode = StationList.SelectedValue;
+                // post back, 用户点击了Upload 按钮。
 
-                StreamReader sr = new StreamReader(FileUploadCtrl.FileContent);
-
-                string templateContent = sr.ReadToEnd();
-
-                DztzDataContext context = new DztzDataContext();
-                context.ledgerNodes.InsertOnSubmit(new ledgerNode()
-                {
-                    Id = 1,
-                    AccessLevel = 5,
-                    CreateTime = DateTime.Now.ToString(),
-                    LedgerName=LedgerName.Text,
-                    TemplateContent=templateContent
-                });
-
-                context.SubmitChanges();
-
+                
                 // @Frank to do,
                 // 根据ledgerNodes 数据表 生成左边的菜单。参考Site.Master.
                 //    < dl id = "menu-article" class="Hui-menu">
@@ -90,6 +73,21 @@ namespace dztzPro
 
                 string templateContent = sr.ReadToEnd();
                 sr.Dispose();
+                DztzDataContext dbContext = new DztzDataContext();
+                dbContext.ledgerNodes.InsertOnSubmit(new ledgerNode()
+                {
+                    Station = station,
+                    AccessLevel = accessLevel,
+                    CreateTime = DateTime.Now.ToString(),
+                    LedgerName = ledgerName,
+                   TemplateContent = templateContent
+                });
+
+                dbContext.SubmitChanges();
+            }
+            else
+            {
+                ;
             }
 
             // https://blog.csdn.net/mhjbeijing/article/details/6423215
