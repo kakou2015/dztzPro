@@ -1,4 +1,11 @@
 <div class="Hui-admin-article">
+<script type="text/javascript">
+  $(document).ready(function () {
+  var rqsj = document.getElementById('rqsj');
+  rqsj.value = (new Date().format('yyyy-MM-dd h:m:s'));
+  alert(rqsj.value)
+  });
+</script>
   <article class="Hui-admin-content clearfix">
     <div class="panel">
       <div class="panel-body">
@@ -167,7 +174,7 @@
             <tr>
               <th class="text-c">接班者</th>
               <td>
-                值班员：<span class="qd"/>
+                值班员：<span class="qd">
                 <input id="ten1" title="请输入身份证最后6位" type="text" size="6"/>
                 <a href="javascript:zjpost('ten1')" class="btn-link"> 证件签到</a>
               </td>
@@ -189,7 +196,4 @@
       </div>
     </div>
   </article>
-  <script src="/datatime/laydate.js"></script>
-  <script src="lay_rq.js"></script>
-  <script src="01.js"></script>
 </div>

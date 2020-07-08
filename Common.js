@@ -58,17 +58,12 @@ String.prototype.replaceAll = function (FindText, RepText) {
 }
 $(document).ready(function () {
 
-    window.setInterval(function () {
-        $('#currentTime').html(new Date().format('yyyy-MM-dd h:m:s'));
-    }, 1000);
+    //window.setInterval(function () {
+    //    $('#currentTime').html(new Date().format('yyyy-MM-dd h:m:s'));
+    //}, 1000);
 
-//    if (getUrlParam('action') == '2' && window.location is task.aspx)
-//{
-    //@Frank.
-//    // use ajax to get json data, and fill data to template.
-    //    }
     var jsonCtrl = document.getElementById('jsonContent')
-    if (jsonCtrl != null) {
+    if (jsonCtrl != null && jsonCtrl.value.length > 3) {
         var jsonContent = decodeURIComponent(jsonCtrl.value);
         var json = JSON.parse(jsonContent);
         console.log(json);
