@@ -54,6 +54,7 @@ CREATE TABLE [dbo].[LedgerNode](
 	[Reserved1] [nvarchar](250) NULL,
 	[Reserved2] [nvarchar](250) NULL,
 	[Reserved3] [nvarchar](250) NULL,
+	[TemplateFileName] [nvarchar](250) NULL,
 	[TemplateContent] [text] NULL,
  CONSTRAINT [PK_LedgerNode] PRIMARY KEY CLUSTERED 
 (
