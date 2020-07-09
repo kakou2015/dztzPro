@@ -45,9 +45,7 @@
                 <td>
                 </td>
                 <td>
-                <a class="btn btn-primary radius mr-20" style="line-height: 1.8em; margin-top: 3px;" href="#" onclick="menuitem_click('')">
-                    <i class="icon-ok"></i>
-                </a>
+                    <asp:Button ID="UploadBttn" runat="server" Text="上传" OnClick="Upload_Click" Height="30px" Width="80px" Style="margin-left: 57px" TabIndex="14" />                </a>
                 </td>
             </tr>
         </table>

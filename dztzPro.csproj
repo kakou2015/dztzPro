@@ -798,9 +798,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="LoadHtmlServer.ashx.cs">
-      <DependentUpon>LoadHtmlServer.ashx</DependentUpon>
-    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -875,7 +872,6 @@
       <LastGenOutput>dztz.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="LoadHtmlServer.ashx" />
     <None Include="packages.config" />
     <Content Include="static\h-ui\images\dataTable\Sorting icons.psd" />
     <Content Include="static\h-ui\images\face\Thumbs.db" />

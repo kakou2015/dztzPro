@@ -60,7 +60,9 @@ String.prototype.replaceAll = function (FindText, RepText) {
 $(document).ready(function () {
 
     //window.setInterval(function () {
-    //    $('#currentTime').html(new Date().format('yyyy-MM-dd h:m:s'));
+    //    $('.Hui-menu > .Hui-menu-title').show();
+    //    $('.Hui-menu > .Hui-menu-item').show();
+    //    //$('#currentTime').html(new Date().format('yyyy-MM-dd h:m:s'));
     //}, 1000);
 
     var jsonCtrl = document.getElementById('jsonContent')
