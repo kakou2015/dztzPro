@@ -19,6 +19,23 @@
 	<link rel="stylesheet" type="text/css" href="./static/h-ui.admin.pro/skin/default/skin.css" id="skin" />
 	<link rel="stylesheet" type="text/css" href="./static/business/css/style.css" />
 
+
+    <style>
+        .Freezing {
+            position: relative;
+            table-layout: fixed;
+            top: expression(this.offsetParent.scrollTop);
+            z-index: 10;
+        }
+
+            .Freezing th {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                padding: 2px;
+            }
+    </style>
+
 	<script type="text/javascript" src="./lib/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript" src="./lib/layer/3.1.1/layer.js"></script>
 	<script type="text/javascript" src="./static/h-ui/js/H-ui.min.js"></script>
@@ -58,7 +75,7 @@
 						<ul class="clearfix">
 							<asp:ContentPlaceHolder ID="HeaderContent" runat="server">
 							</asp:ContentPlaceHolder>
-							<li><%--当前时间:<span id="currentTime"></span>  --%> 菜单颜色</li>
+							<li style="color:#040038"><%--当前时间:<span id="currentTime"></span>  --%> 菜单颜色</li>
 							<li id="Hui-skin" class="dropDown dropDown_hover right">
 								<a href="javascript:;" class="dropDown_A" title="导航栏换肤"><i class="Hui-iconfont" style="font-size: 18px">&#xe62a;</i></a>
 								<ul class="dropDown-menu menu radius box-shadow">

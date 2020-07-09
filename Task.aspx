@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Task.aspx.cs" Inherits="dztzPro.Task" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <%= Content %>
     <input type="hidden" id="jsonContent" value="<%= JsonContent %>" />
@@ -11,9 +12,14 @@
         <a class="btn btn-primary radius mr-20" style="line-height: 1.8em; margin-top: 3px;" href="#" onclick="save();">
             <i class="icon-ok"></i>保存
         </a>
+    </li>
+    <li>
         <a class="btn btn-success radius mr-20" style="line-height: 1.8em; margin-top: 3px;" href="#" onclick="finish();">
-            结束填写
+            <i class="icon-ok"></i>结束填写
         </a>
+    </li>
+    <li>
+        &nbsp;&nbsp;&nbsp;&nbsp;
     </li>
 
 </asp:Content>
