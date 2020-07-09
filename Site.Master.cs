@@ -17,7 +17,7 @@ namespace dztzPro
             //    Response.Redirect("login.aspx");
             //}
 
-            LeftMenuContent = "<aside class=\"Hui-admin-aside-wrapper\"><div class=\"Hui-admin-logo-wrapper\"><a class=\"logo navbar-logo\" href=\"./\"><i class=\"va-m iconpic global-logo\"></i></a><a href =\"addNode.aspx\">电子台账 </a></div>";
+            LeftMenuContent = "<aside class=\"Hui-admin-aside-wrapper\"><div class=\"Hui-admin-logo-wrapper\"><a class=\"logo navbar-logo\" href=\"./\"><i class=\"va-m iconpic global-logo\"></i></a><a href =\"index.aspx\">电子台账 </a></div>";
             
             DztzDataContext dbContext = new DztzDataContext();
             var q = from ln in dbContext.LedgerNodes

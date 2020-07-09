@@ -39,7 +39,6 @@
     <script type="text/javascript">
         function menuitem_click(urlname)
         {
-            alert(urlname);
             $.ajax({
                 async: false,
                 type: "POST",
@@ -47,12 +46,6 @@
                 data: urlname,
                 dataType: "json",
                 success: function (data) {
-                    if (data.code != 0) {
-                        commonLayer.msg(data.msg);
-                        return;
-                    }
-                    alert(data);
-                    datas = data;
                 },
                 error: function () { },
                 complete: function () {
