@@ -19,7 +19,7 @@ namespace dztzPro
 			if (txtName.Text == "admin" && txtPassword.Text == "123456")
 			{
 				Session["user"] = txtName;
-				Response.Redirect("AddNode.aspx");
+				Response.Redirect("Index.aspx");
                 Global.CurrentUser = Session["user"].ToString(); 
 			}
 		}
