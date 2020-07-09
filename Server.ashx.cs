@@ -43,7 +43,7 @@ namespace dztzPro
 
                             string data = context.Request["content"];
                             ledgerNodeItem.ModifyTime = DateTime.Now.ToString();
-                            ledgerNodeItem.ModifyUser = "";//current login user
+                            ledgerNodeItem.ModifyUser = Global.CurrentUser;//current login user
                             ledgerNodeItem.TemplateValue = data;
                             dztz.SubmitChanges();
                         }
@@ -69,10 +69,10 @@ namespace dztzPro
                         string data = context.Request["content"];
                         ledgerNodeItem.LedgerNodeId = Convert.ToInt32(context.Request["ledgerNodeId"]);//current ledgernode id                        
                         ledgerNodeItem.LedgerNodeName = dztz.LedgerNodes.SingleOrDefault<LedgerNode>(s => s.Id == ledgerNodeItem.LedgerNodeId).LedgerNodeName;
-                        ledgerNodeItem.CreateUser = "";//current login user
+                        ledgerNodeItem.CreateUser = Global.CurrentUser;//current login user
                         ledgerNodeItem.CreateTime = DateTime.Now.ToString();
                         ledgerNodeItem.ModifyTime = DateTime.Now.ToString();
-                        ledgerNodeItem.ModifyUser = "";//current login user
+                        ledgerNodeItem.ModifyUser = Global.CurrentUser;//current login user
                         ledgerNodeItem.TemplateValue = data;
                         dztz.LedgerNodeItems.InsertOnSubmit(ledgerNodeItem);
                         dztz.SubmitChanges();

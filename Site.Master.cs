@@ -12,6 +12,11 @@ namespace dztzPro
         public string LeftMenuContent { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null)
+            {
+                Response.Redirect("login.aspx");
+            }
+
             LeftMenuContent = "<aside class=\"Hui-admin-aside-wrapper\"><div class=\"Hui-admin-logo-wrapper\"><a class=\"logo navbar-logo\" href=\"./\"><i class=\"va-m iconpic global-logo\"></i></a><a href =\"addNode.aspx\">电子台账 </a></div>";
             
             DztzDataContext dbContext = new DztzDataContext();

@@ -21,6 +21,7 @@ namespace dztzPro
         {
             JsonContent = "";
             DztzDataContext context = new DztzDataContext();
+            var id = Convert.ToInt32(Request["ledgerNodeId"]);
             var action = Request["action"];
             if(action!=null)
             {
@@ -34,7 +35,7 @@ namespace dztzPro
                 {
                     // display template to display the data.
                     //只能修改未完成的账簿，同时只能存在一张未完成的账簿
-                    var nodeItem = context.LedgerNodeItems.SingleOrDefault<LedgerNodeItem>(ln => ln.Status == 0);
+                    var nodeItem = context.LedgerNodeItems.SingleOrDefault<LedgerNodeItem>(ln => ln.Status == 0 && ln.LedgerNodeId == id);
                     if (nodeItem != null)
                     {
                         LedgerItemId = nodeItem.Id.ToString();
@@ -46,7 +47,6 @@ namespace dztzPro
 
             }
 
-            var id = Convert.ToInt32(Request["ledgerNodeId"]);
 
             var node= context.LedgerNodes.First(ln => ln.Id == id);
             if (node != null)

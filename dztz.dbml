@@ -1,6 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dztz" Class="DataContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=dztz;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="dztzConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.ledgerNode" Member="LedgerNodes">
+  <Table Name="dbo.LedgerNodeItem" Member="LedgerNodeItems">
+    <Type Name="LedgerNodeItem">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LedgerNodeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LedgerNodeName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ModifyUser" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ModifyTime" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TemplateValue" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LedgerNode" Member="LedgerNodes">
     <Type Name="LedgerNode">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="LedgerNodeType" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
@@ -13,21 +26,8 @@
       <Column Name="ModifyTime" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="Reserved1" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="Reserved2" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="Reserved3" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TemplateFileName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="TemplateContent" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-    </Type>
-  </Table>
-  <Table Name="dbo.LedgerNodeItem" Member="LedgerNodeItems">
-    <Type Name="LedgerNodeItem">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="LedgerNodeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="LedgerNodeName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="CreateUser" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="CreateTime" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="ModifyUser" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="ModifyTime" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TemplateValue" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
 </Database>

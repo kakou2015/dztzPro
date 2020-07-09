@@ -48,7 +48,7 @@
 	</div>
 	<section class="Hui-admin-article-wrapper">
 		<!--_header 作为公共模版分离出去-->
-		<header class="Hui-navbar">
+		<header class="Hui-navbar" style="color:aliceblue">
 			<div class="navbar">
 				<div class="container-fluid clearfix">
 					<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar">

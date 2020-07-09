@@ -107,6 +107,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="hyweb\hy04.html" />
+    <Content Include="Login.aspx" />
     <Content Include="Task.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="lib\datatables\1.10.15\jquery.dataTables.js" />
@@ -796,6 +797,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Server.ashx.cs">
       <DependentUpon>Server.ashx</DependentUpon>

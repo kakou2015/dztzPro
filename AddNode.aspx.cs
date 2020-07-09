@@ -55,9 +55,9 @@ namespace dztzPro
                     LedgerNodeName = ledgerNodeName,
                     AccessLevel = accessLevel,
                     CreateTime = time,
-                    CreateUser = "frank",
+                    CreateUser = Global.CurrentUser,
                     ModifyTime = time,
-                    ModifyUser = "frank",
+                    ModifyUser = Global.CurrentUser,
                     TemplateContent = templateContent
                 });
 

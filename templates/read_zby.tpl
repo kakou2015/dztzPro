@@ -2,7 +2,10 @@
 <script type="text/javascript">
   $(document).ready(function () {
   var rqsj = document.getElementById('rqsj');
-  rqsj.value = (new Date().format('yyyy-MM-dd h:m:s'));
+  if(rqsj.value == "")
+  {
+    rqsj.value = (new Date().format('yyyy-MM-dd h:m:s'));
+  }
   });
 </script>
   <article class="Hui-admin-content clearfix">
