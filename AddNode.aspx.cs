@@ -58,6 +58,7 @@ namespace dztzPro
                     CreateUser = Global.CurrentUser,
                     ModifyTime = time,
                     ModifyUser = Global.CurrentUser,
+                    TemplateFileName = FileUploadCtrl.FileName,
                     TemplateContent = templateContent
                 });
 
