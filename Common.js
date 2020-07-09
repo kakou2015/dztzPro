@@ -52,6 +52,7 @@ function finish() {
     //https://api.jquery.com/jQuery.ajax/
     getinputs("finish");
 }
+
 String.prototype.replaceAll = function (FindText, RepText) {
     regExp = new RegExp(FindText, "g");
     return this.replace(regExp, RepText);

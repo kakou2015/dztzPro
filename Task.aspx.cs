@@ -19,40 +19,47 @@ namespace dztzPro
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            JsonContent = "";
-            DztzDataContext context = new DztzDataContext();
-            var id = Convert.ToInt32(Request["ledgerNodeId"]);
-            var action = Request["action"];
-            if(action!=null)
+            try
             {
-                LedgerItemId = "0";
-                if (action == "1")
+                JsonContent = "";
+                DztzDataContext context = new DztzDataContext();
+                var id = Convert.ToInt32(Request["ledgerNodeId"]);
+                var action = Request["action"];
+                if (action != null)
                 {
-                    //display template to let user to fill data,
-                    // Use ajax to save data.
-                }
-                else
-                {
-                    // display template to display the data.
-                    //只能修改未完成的账簿，同时只能存在一张未完成的账簿
-                    var nodeItem = context.LedgerNodeItems.SingleOrDefault<LedgerNodeItem>(ln => ln.Status == 0 && ln.LedgerNodeId == id);
-                    if (nodeItem != null)
+                    LedgerItemId = "0";
+                    if (action == "1")
                     {
-                        LedgerItemId = nodeItem.Id.ToString();
-                        JsonContent = HttpUtility.UrlEncode(nodeItem.TemplateValue,Encoding.UTF8);
+                        //display template to let user to fill data,
+                        // Use ajax to save data.
+                    }
+                    else
+                    {
+                        // display template to display the data.
+                        //只能修改未完成的账簿，同时只能存在一张未完成的账簿
+                        var nodeItem = context.LedgerNodeItems.SingleOrDefault<LedgerNodeItem>(ln => ln.Status == 0 && ln.LedgerNodeId == id);
+                        if (nodeItem != null)
+                        {
+                            LedgerItemId = nodeItem.Id.ToString();
+                            JsonContent = HttpUtility.UrlEncode(nodeItem.TemplateValue, Encoding.UTF8);
+                        }
+
+                        //前端用 $('#jsonContent').value() 可以获取jsonContent 的string，然后参照ItemDetail.aspx,把数据赋值给table。
                     }
 
-                    //前端用 $('#jsonContent').value() 可以获取jsonContent 的string，然后参照ItemDetail.aspx,把数据赋值给table。
                 }
 
+
+                var node = context.LedgerNodes.First(ln => ln.Id == id);
+                if (node != null)
+                {
+                    LedgerNodeId = id.ToString();
+                    Content = node.TemplateContent;
+                }
             }
-
-
-            var node= context.LedgerNodes.First(ln => ln.Id == id);
-            if (node != null)
+            catch(Exception exp)
             {
-                LedgerNodeId = id.ToString();
-                Content = node.TemplateContent;
+                Console.Out.WriteLine(exp.ToString());
             }
         }
     }
