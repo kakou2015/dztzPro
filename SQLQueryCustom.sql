@@ -20,7 +20,7 @@ CREATE TABLE [dbo].[LedgerNodeItem](
 	[CreateTime] [nvarchar](250) NULL,
 	[ModifyUser] [nvarchar](250) NULL,
 	[ModifyTime] [nvarchar](250) NULL,
-	[Status] [nvarchar](250) NULL,,
+	[Status] [int] NOT NULL,
 	[TemplateValue] [text] NULL,
  CONSTRAINT [PK_LedgerNodeItem] PRIMARY KEY CLUSTERED 
 (
