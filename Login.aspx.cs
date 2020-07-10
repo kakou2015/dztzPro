@@ -16,11 +16,11 @@ namespace dztzPro
 
         protected void LoginBttn_Click(object sender, EventArgs e)
 		{
-			if (txtName.Text == "admin" && txtPassword.Text == "123456")
+			if (txtName.Text == "admin" && txtPassword.Text == "111111")
 			{
 				Session["user"] = txtName;
+                Global.CurrentUser = txtName.Text; 
 				Response.Redirect("Index.aspx");
-                Global.CurrentUser = Session["user"].ToString(); 
 			}
 		}
 	}

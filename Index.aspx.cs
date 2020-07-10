@@ -12,6 +12,18 @@ namespace dztzPro
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var action = Request["action"];
+            if (action != null)
+            {
+                if (action == "1")
+                {
+                    //display template to let user to fill data,
+                    // Use ajax to save data.
+                    Session["user"] = null; 
+                    Global.CurrentUser = "";
+                }
+            }
+
             Global.CurrentSelectedLedger = 0;
         }
     }
