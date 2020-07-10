@@ -16,14 +16,22 @@ namespace dztzPro
         public string Content { get; set; }
 
         public string JsonContent { get; set; }
+        public string Title { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
                 JsonContent = "";
-                DztzDataContext context = new DztzDataContext();
+                DztzDataContext dbContext = new DztzDataContext();
                 var id = Convert.ToInt32(Request["ledgerNodeId"]);
+                var node = dbContext.LedgerNodes.First(ln => ln.Id == id);
+                if (node != null)
+                {
+                    LedgerNodeId = id.ToString();
+                    Content = node.TemplateContent;
+                    Global.CurrentSelectedLedger = id;
+                }
                 var action = Request["action"];
                 if (action != null)
                 {
@@ -32,30 +40,23 @@ namespace dztzPro
                     {
                         //display template to let user to fill data,
                         // Use ajax to save data.
+                        Title = node.LedgerNodeType + "  --  " + node.LedgerNodeName + "  --  新建";
                     }
                     else
                     {
                         // display template to display the data.
                         //只能修改未完成的账簿，同时只能存在一张未完成的账簿
-                        var nodeItem = context.LedgerNodeItems.SingleOrDefault<LedgerNodeItem>(ln => ln.Status == 0 && ln.LedgerNodeId == id);
+                        var nodeItem = dbContext.LedgerNodeItems.SingleOrDefault<LedgerNodeItem>(ln => ln.Status == 0 && ln.LedgerNodeId == id);
                         if (nodeItem != null)
                         {
                             LedgerItemId = nodeItem.Id.ToString();
                             JsonContent = HttpUtility.UrlEncode(nodeItem.TemplateValue, Encoding.UTF8);
                         }
 
-                        //前端用 $('#jsonContent').value() 可以获取jsonContent 的string，然后参照ItemDetail.aspx,把数据赋值给table。
+                        Title = node.LedgerNodeType + "  --  " + node.LedgerNodeName + "  --  修改";
                     }
-
                 }
 
-
-                var node = context.LedgerNodes.First(ln => ln.Id == id);
-                if (node != null)
-                {
-                    LedgerNodeId = id.ToString();
-                    Content = node.TemplateContent;
-                }
             }
             catch(Exception exp)
             {

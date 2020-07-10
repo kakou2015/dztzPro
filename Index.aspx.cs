@@ -12,6 +12,7 @@ namespace dztzPro
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Global.CurrentSelectedLedger = 0;
         }
     }
 }

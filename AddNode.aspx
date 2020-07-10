@@ -1,21 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddNode.aspx.cs" Inherits="dztzPro.AddNode" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div style="width: 100%; text-align: center">
+    <div style="width: 99%; text-align: center; padding-left:8px">
         <form runat="server">
             <table class="table table-border table-bordered table-bg mt-20">
                 <tr>
                     <td class="auto-style1">账簿名：&nbsp;
                     </td>
                     <td>
-                        <asp:TextBox ID="LedgerNodeName" runat="server" Height="20px" Width="500px" TabIndex="10"></asp:TextBox>
+                        <asp:TextBox ID="LedgerNodeName" runat="server" Height="20px" Width="500px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style1">账簿类别：
                     </td>
                     <td>
-                        <asp:DropDownList ID="LedgerTypeList" runat="server" Height="30px" Width="500px" TabIndex="11">
+                        <asp:DropDownList ID="LedgerTypeList" runat="server" Height="30px" Width="500px">
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -23,7 +23,7 @@
                     <td class="auto-style1">车站：&nbsp;&nbsp;
                     </td>
                     <td>
-                        <asp:DropDownList ID="StationList" runat="server" Height="30px" Width="500px" TabIndex="11">
+                        <asp:DropDownList ID="StationList" runat="server" Height="30px" Width="500px">
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -31,7 +31,7 @@
                     <td class="auto-style1">访问权限：
                     </td>
                     <td>
-                        <asp:DropDownList ID="AccessLevelList" runat="server" Height="30px" Width="50px" TabIndex="12">
+                        <asp:DropDownList ID="AccessLevelList" runat="server" Height="30px" Width="500px">
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -39,13 +39,13 @@
                     <td class="auto-style1">摸板路径：
                     </td>
                     <td>
-                        <asp:FileUpload ID="FileUploadCtrl" runat="server" Height="30px" Width="600px" TabIndex="13" />
+                        <asp:FileUpload ID="FileUploadCtrl" runat="server" Height="30px" Width="500px"/>
                     </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <asp:Button ID="UploadBttn" runat="server" Text="上传" OnClick="Upload_Click" Height="30px" Width="80px" Style="margin-left: 57px" TabIndex="14" />
+                        <asp:Button ID="UploadBttn" runat="server" Text="上传" OnClick="Upload_Click" Height="30px" Width="80px" Style="margin-left: 57px"/>
                         </a>
                     </td>
                 </tr>
@@ -80,4 +80,12 @@
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dztzConnectionString %>" SelectCommand="SELECT DISTINCT [Id], [Station],[LedgerNodeName], [LedgerNodeType], [AccessLevel], [CreateUser], [CreateTime], [ModifyUser], [ModifyTime], [TemplateFileName] FROM [ledgerNode] ORDER BY [Id] DESC, [ModifyTime] DESC, [CreateTime] DESC"></asp:SqlDataSource>
         </form>
     </div>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="HeaderContent" runat="server">
+    <li style="color:#040038">
+        账簿模板管理
+    </li>
+    <li>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+    </li>
 </asp:Content>

@@ -19,6 +19,7 @@ namespace dztzPro
                     select
                         new { station = ln.Station, type = ln.LedgerNodeType, name = ln.LedgerNodeName };
             Title = q.First().type + "  --  " + q.First().name + " -- 记录";
+            Global.CurrentSelectedLedger = id;
         }
     }
 }

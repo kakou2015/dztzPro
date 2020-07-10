@@ -31,13 +31,13 @@ namespace dztzPro
                 // 根据ledgerNodes 数据表 生成左边的菜单。参考Site.Master.
             }
 
+            Global.CurrentSelectedLedger = 0;
         }
 
         protected void Upload_Click(object sender, EventArgs e)
         {
             var station = StationList.SelectedValue;
             var ledgerNodeType = LedgerTypeList.SelectedValue;
-            var ledgerNodeName = LedgerNodeName.Text;
             var accessLevel = Convert.ToInt32(AccessLevelList.SelectedValue);
 
             if (FileUploadCtrl.HasFile)
@@ -52,7 +52,7 @@ namespace dztzPro
                 {
                     Station = station,
                     LedgerNodeType = ledgerNodeType,
-                    LedgerNodeName = ledgerNodeName,
+                    LedgerNodeName = LedgerNodeName.Text==""?FileUploadCtrl.FileName:LedgerNodeName.Text,
                     AccessLevel = accessLevel,
                     CreateTime = time,
                     CreateUser = Global.CurrentUser,
