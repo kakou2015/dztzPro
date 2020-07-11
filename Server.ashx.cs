@@ -76,6 +76,10 @@ namespace dztzPro
                         ledgerNodeItem.TemplateValue = data;
                         dztz.LedgerNodeItems.InsertOnSubmit(ledgerNodeItem);
                         dztz.SubmitChanges();
+                        if (ledgerNodeItem.Status == 0)
+                        {
+                            context.Response.Redirect("task.aspx?action=2&ledgerNodeId=" + ledgerNodeItem.LedgerNodeId.ToString());
+                        }
                     }
                 }
                 catch(Exception e)

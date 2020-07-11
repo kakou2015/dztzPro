@@ -46,11 +46,15 @@ namespace dztzPro
                     {
                         // display template to display the data.
                         //只能修改未完成的账簿，同时只能存在一张未完成的账簿
-                        var nodeItem = dbContext.LedgerNodeItems.SingleOrDefault<LedgerNodeItem>(ln => ln.Status == 0 && ln.LedgerNodeId == id);
+                        var nodeItem = dbContext.LedgerNodeItems.FirstOrDefault<LedgerNodeItem>(ln => ln.Status == 0 && ln.LedgerNodeId == id);
                         if (nodeItem != null)
                         {
                             LedgerItemId = nodeItem.Id.ToString();
                             JsonContent = HttpUtility.UrlEncode(nodeItem.TemplateValue, Encoding.UTF8);
+                        }
+                        else
+                        {
+                            Response.Redirect("task.aspx?action=1&ledgerNodeId=" + id.ToString());
                         }
 
                         Title = node.LedgerNodeType + "  --  " + node.LedgerNodeName + "  --  修改";

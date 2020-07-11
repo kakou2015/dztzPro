@@ -70,9 +70,6 @@ namespace dztzPro
             }
 
             Response.Redirect("AddNode.aspx");
-            // https://blog.csdn.net/mhjbeijing/article/details/6423215
-            // refresh page.
-
         }
     }
 }
