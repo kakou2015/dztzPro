@@ -108,6 +108,7 @@
     <Content Include="Global.asax" />
     <Content Include="hyweb\hy04.html" />
     <Content Include="Login.aspx" />
+    <Content Include="ItemView.aspx" />
     <Content Include="Task.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="lib\datatables\1.10.15\jquery.dataTables.js" />
@@ -808,6 +809,13 @@
     </Compile>
     <Compile Include="Server.ashx.cs">
       <DependentUpon>Server.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ItemView.aspx.cs">
+      <DependentUpon>ItemView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemView.aspx.designer.cs">
+      <DependentUpon>ItemView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Task.aspx.cs">
       <DependentUpon>Task.aspx</DependentUpon>

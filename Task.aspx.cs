@@ -25,6 +25,7 @@ namespace dztzPro
                 JsonContent = "";
                 DztzDataContext dbContext = new DztzDataContext();
                 var id = Convert.ToInt32(Request["ledgerNodeId"]);
+                var itemId = Convert.ToInt32(Request["ledgerNodeItemId"]);
                 var node = dbContext.LedgerNodes.First(ln => ln.Id == id);
                 if (node != null)
                 {
@@ -42,22 +43,30 @@ namespace dztzPro
                         // Use ajax to save data.
                         Title = node.LedgerNodeType + "  --  " + node.LedgerNodeName + "  --  新建";
                     }
-                    else
+                    else if(action == "2")
                     {
                         // display template to display the data.
                         //只能修改未完成的账簿，同时只能存在一张未完成的账簿
-                        var nodeItem = dbContext.LedgerNodeItems.FirstOrDefault<LedgerNodeItem>(ln => ln.Status == 0 && ln.LedgerNodeId == id);
-                        if (nodeItem != null)
+                        if(itemId == 0)
                         {
-                            LedgerItemId = nodeItem.Id.ToString();
-                            JsonContent = HttpUtility.UrlEncode(nodeItem.TemplateValue, Encoding.UTF8);
+                            Response.Redirect("search.aspx?action=2&ledgerNodeId=" + id.ToString());
                         }
                         else
                         {
-                            Response.Redirect("task.aspx?action=1&ledgerNodeId=" + id.ToString());
+                            var nodeItem = dbContext.LedgerNodeItems.FirstOrDefault<LedgerNodeItem>(ln => ln.LedgerNodeId == id && ln.Id == itemId);
+                            if (nodeItem != null)
+                            {
+                                LedgerItemId = nodeItem.Id.ToString();
+                                JsonContent = HttpUtility.UrlEncode(nodeItem.TemplateValue, Encoding.UTF8);
+                            }
+                            else
+                            {
+                                Response.Redirect("task.aspx?action=1&ledgerNodeId=" + id.ToString());
+                            }
+
+                            Title = node.LedgerNodeType + "  --  " + node.LedgerNodeName + "  --  修改";
                         }
 
-                        Title = node.LedgerNodeType + "  --  " + node.LedgerNodeName + "  --  修改";
                     }
                 }
 

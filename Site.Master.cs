@@ -48,8 +48,8 @@ namespace dztzPro
                             + "<dt class=\"Hui-menu-title selected\">" + ledgerNode.name + "<i class=\"Hui-iconfont Hui-admin-menu-dropdown-arrow\">&#xe6d5;</i></dt>"
                             + "<dd class=\"Hui-menu-item\" style=\"display: block;\"><ul>"
                             + "<li><a href =\"task.aspx?action=1&ledgerNodeId=" + ledgerNode.id.ToString() + "\">填写 </a></li>"
-                            + "<li><a href=\"task.aspx?action=2&ledgerNodeId=" + ledgerNode.id.ToString() + "\">修改</a></li>"
-                            + "<li><a href = \"search.aspx?ledgerNodeId=" + ledgerNode.id.ToString() + "\"> 查询 </a></li>"
+                            + "<li><a href=\"task.aspx?action=2&ledgerNodeId=" + ledgerNode.id.ToString() + "&ledgerNodeItemId=0\">修改</a></li>"
+                            + "<li><a href = \"search.aspx?action=1&ledgerNodeId=" + ledgerNode.id.ToString() + "\"> 查询 </a></li>"
                             + "</ul></dd></dl>";
                     }
                     else
@@ -61,8 +61,8 @@ namespace dztzPro
                             + "<dt class=\"Hui-menu-title\">" + ledgerNode.name + "<i class=\"Hui-iconfont Hui-admin-menu-dropdown-arrow\">&#xe6d5;</i></dt>"
                             + "<dd class=\"Hui-menu-item\"><ul>"
                             + "<li><a href =\"task.aspx?action=1&ledgerNodeId=" + ledgerNode.id.ToString() + "\">填写 </a></li>"
-                            + "<li><a href=\"task.aspx?action=2&ledgerNodeId=" + ledgerNode.id.ToString() + "\">修改</a></li>"
-                            + "<li><a href = \"search.aspx?ledgerNodeId=" + ledgerNode.id.ToString() + "\"> 查询 </a></li>"
+                            + "<li><a href=\"task.aspx?action=2&ledgerNodeId=" + ledgerNode.id.ToString() + "&ledgerNodeItemId=0\">修改</a></li>"
+                            + "<li><a href = \"search.aspx?action=1&ledgerNodeId=" + ledgerNode.id.ToString() + "\"> 查询 </a></li>"
                             + "</ul></dd></dl>";
                     }
                 }
@@ -78,8 +78,8 @@ namespace dztzPro
                             + "<dt class=\"Hui-menu-title selected\">" + ledgerNode.name + "<i class=\"Hui-iconfont Hui-admin-menu-dropdown-arrow\">&#xe6d5;</i></dt>"
                             + "<dd class=\"Hui-menu-item\" style=\"display: block;\"><ul>"
                             + "<li><a href =\"task.aspx?action=1&ledgerNodeId=" + ledgerNode.id.ToString() + "\">填写 </a></li>"
-                            + "<li><a href=\"task.aspx?action=2&ledgerNodeId=" + ledgerNode.id.ToString() + "\">修改</a></li>"
-                            + "<li><a href = \"search.aspx?ledgerNodeId=" + ledgerNode.id.ToString() + "\"> 查询 </a></li>"
+                            + "<li><a href=\"task.aspx?action=2&ledgerNodeId=" + ledgerNode.id.ToString() + "&ledgerNodeItemId=0\">修改</a></li>"
+                            + "<li><a href = \"search.aspx?action=1&ledgerNodeId=" + ledgerNode.id.ToString() + "\"> 查询 </a></li>"
                             + "</ul></dd></dl>";
                     }
                     else
@@ -91,8 +91,8 @@ namespace dztzPro
                             + "<dt class=\"Hui-menu-title\">" + ledgerNode.name + "<i class=\"Hui-iconfont Hui-admin-menu-dropdown-arrow\">&#xe6d5;</i></dt>"
                             + "<dd class=\"Hui-menu-item\"><ul>"
                             + "<li><a href =\"task.aspx?action=1&ledgerNodeId=" + ledgerNode.id.ToString() + "\">填写 </a></li>"
-                            + "<li><a href=\"task.aspx?action=2&ledgerNodeId=" + ledgerNode.id.ToString() + "\">修改</a></li>"
-                            + "<li><a href = \"search.aspx?ledgerNodeId=" + ledgerNode.id.ToString() + "\"> 查询 </a></li>"
+                            + "<li><a href=\"task.aspx?action=2&ledgerNodeId=" + ledgerNode.id.ToString() + "&ledgerNodeItemId=0\">修改</a></li>"
+                            + "<li><a href = \"search.aspx?action=1&ledgerNodeId=" + ledgerNode.id.ToString() + "\"> 查询 </a></li>"
                             + "</ul></dd></dl>";
                     }
                 }
@@ -104,8 +104,8 @@ namespace dztzPro
                             + "<dt class=\"Hui-menu-title selected\">" + ledgerNode.name + "<i class=\"Hui-iconfont Hui-admin-menu-dropdown-arrow\">&#xe6d5;</i></dt>"
                             + "<dd class=\"Hui-menu-item\" style=\"display: block;\"><ul>"
                             + "<li><a href =\"task.aspx?action=1&ledgerNodeId=" + ledgerNode.id.ToString() + "\">填写 </a></li>"
-                            + "<li><a href=\"task.aspx?action=2&ledgerNodeId=" + ledgerNode.id.ToString() + "\">修改</a></li>"
-                            + "<li><a href = \"search.aspx?ledgerNodeId=" + ledgerNode.id.ToString() + "\"> 查询 </a></li>"
+                            + "<li><a href=\"task.aspx?action=2&ledgerNodeId=" + ledgerNode.id.ToString() + "&ledgerNodeItemId=0\">修改</a></li>"
+                            + "<li><a href = \"search.aspx?action=1&ledgerNodeId=" + ledgerNode.id.ToString() + "\"> 查询 </a></li>"
                             + "</ul></dd></dl>";
                     }
                     else
@@ -114,8 +114,8 @@ namespace dztzPro
                             + "<dt class=\"Hui-menu-title\">" + ledgerNode.name + "<i class=\"Hui-iconfont Hui-admin-menu-dropdown-arrow\">&#xe6d5;</i></dt>"
                             + "<dd class=\"Hui-menu-item\"><ul>"
                             + "<li><a href =\"task.aspx?action=1&ledgerNodeId=" + ledgerNode.id.ToString() + "\">填写 </a></li>"
-                            + "<li><a href=\"task.aspx?action=2&ledgerNodeId=" + ledgerNode.id.ToString() + "\">修改</a></li>"
-                            + "<li><a href = \"search.aspx?ledgerNodeId=" + ledgerNode.id.ToString() + "\"> 查询 </a></li>"
+                            + "<li><a href=\"task.aspx?action=2&ledgerNodeId=" + ledgerNode.id.ToString() + "&ledgerNodeItemId=0\">修改</a></li>"
+                            + "<li><a href = \"search.aspx?action=1&ledgerNodeId=" + ledgerNode.id.ToString() + "\"> 查询 </a></li>"
                             + "</ul></dd></dl>";
                     }
                 }

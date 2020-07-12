@@ -53,6 +53,10 @@ function finish() {
     getinputs("finish");
 }
 
+function returntosearch(ledgerNodeId) {
+    window.location.href = "search.aspx?action=1&ledgerNodeId=" + ledgerNodeId;
+}
+
 String.prototype.replaceAll = function (FindText, RepText) {
     regExp = new RegExp(FindText, "g");
     return this.replace(regExp, RepText);
