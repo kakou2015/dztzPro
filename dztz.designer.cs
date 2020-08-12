@@ -36,6 +36,12 @@ namespace dztzPro
     partial void InsertLedgerNode(LedgerNode instance);
     partial void UpdateLedgerNode(LedgerNode instance);
     partial void DeleteLedgerNode(LedgerNode instance);
+    partial void InsertAccessLevel(AccessLevel instance);
+    partial void UpdateAccessLevel(AccessLevel instance);
+    partial void DeleteAccessLevel(AccessLevel instance);
+    partial void InsertUser(User instance);
+    partial void UpdateUser(User instance);
+    partial void DeleteUser(User instance);
     #endregion
 		
 		public DztzDataContext() : 
@@ -81,6 +87,22 @@ namespace dztzPro
 			get
 			{
 				return this.GetTable<LedgerNode>();
+			}
+		}
+		
+		public System.Data.Linq.Table<AccessLevel> AccessLevels
+		{
+			get
+			{
+				return this.GetTable<AccessLevel>();
+			}
+		}
+		
+		public System.Data.Linq.Table<User> Users
+		{
+			get
+			{
+				return this.GetTable<User>();
 			}
 		}
 	}
@@ -664,6 +686,442 @@ namespace dztzPro
 					this._TemplateContent = value;
 					this.SendPropertyChanged("TemplateContent");
 					this.OnTemplateContentChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AccessLevel")]
+	public partial class AccessLevel : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _ALName;
+		
+		private long _ALValue;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnALNameChanging(string value);
+    partial void OnALNameChanged();
+    partial void OnALValueChanging(long value);
+    partial void OnALValueChanged();
+    #endregion
+		
+		public AccessLevel()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALName", DbType="NChar(255) NOT NULL", CanBeNull=false)]
+		public string ALName
+		{
+			get
+			{
+				return this._ALName;
+			}
+			set
+			{
+				if ((this._ALName != value))
+				{
+					this.OnALNameChanging(value);
+					this.SendPropertyChanging();
+					this._ALName = value;
+					this.SendPropertyChanged("ALName");
+					this.OnALNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALValue", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long ALValue
+		{
+			get
+			{
+				return this._ALValue;
+			}
+			set
+			{
+				if ((this._ALValue != value))
+				{
+					this.OnALValueChanging(value);
+					this.SendPropertyChanging();
+					this._ALValue = value;
+					this.SendPropertyChanged("ALValue");
+					this.OnALValueChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _UserId;
+		
+		private long _Department;
+		
+		private string _LoginName;
+		
+		private string _UserName;
+		
+		private string _UserPassword;
+		
+		private string _MobilePhone;
+		
+		private string _Email;
+		
+		private long _AccessRight;
+		
+		private string _Description;
+		
+		private System.DateTime _CreateTime;
+		
+		private System.Nullable<System.DateTime> _LoginTime;
+		
+		private System.Nullable<System.DateTime> _LastLoginTime;
+		
+		private long _LoginCount;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUserIdChanging(long value);
+    partial void OnUserIdChanged();
+    partial void OnDepartmentChanging(long value);
+    partial void OnDepartmentChanged();
+    partial void OnLoginNameChanging(string value);
+    partial void OnLoginNameChanged();
+    partial void OnUserNameChanging(string value);
+    partial void OnUserNameChanged();
+    partial void OnUserPasswordChanging(string value);
+    partial void OnUserPasswordChanged();
+    partial void OnMobilePhoneChanging(string value);
+    partial void OnMobilePhoneChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnAccessRightChanging(long value);
+    partial void OnAccessRightChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnCreateTimeChanging(System.DateTime value);
+    partial void OnCreateTimeChanged();
+    partial void OnLoginTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnLoginTimeChanged();
+    partial void OnLastLoginTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnLastLoginTimeChanged();
+    partial void OnLoginCountChanging(long value);
+    partial void OnLoginCountChanged();
+    #endregion
+		
+		public User()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="BigInt NOT NULL")]
+		public long Department
+		{
+			get
+			{
+				return this._Department;
+			}
+			set
+			{
+				if ((this._Department != value))
+				{
+					this.OnDepartmentChanging(value);
+					this.SendPropertyChanging();
+					this._Department = value;
+					this.SendPropertyChanged("Department");
+					this.OnDepartmentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoginName", DbType="NChar(255) NOT NULL", CanBeNull=false)]
+		public string LoginName
+		{
+			get
+			{
+				return this._LoginName;
+			}
+			set
+			{
+				if ((this._LoginName != value))
+				{
+					this.OnLoginNameChanging(value);
+					this.SendPropertyChanging();
+					this._LoginName = value;
+					this.SendPropertyChanged("LoginName");
+					this.OnLoginNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NChar(255) NOT NULL", CanBeNull=false)]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this.OnUserNameChanging(value);
+					this.SendPropertyChanging();
+					this._UserName = value;
+					this.SendPropertyChanged("UserName");
+					this.OnUserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserPassword", DbType="NChar(255) NOT NULL", CanBeNull=false)]
+		public string UserPassword
+		{
+			get
+			{
+				return this._UserPassword;
+			}
+			set
+			{
+				if ((this._UserPassword != value))
+				{
+					this.OnUserPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._UserPassword = value;
+					this.SendPropertyChanged("UserPassword");
+					this.OnUserPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MobilePhone", DbType="NChar(32)")]
+		public string MobilePhone
+		{
+			get
+			{
+				return this._MobilePhone;
+			}
+			set
+			{
+				if ((this._MobilePhone != value))
+				{
+					this.OnMobilePhoneChanging(value);
+					this.SendPropertyChanging();
+					this._MobilePhone = value;
+					this.SendPropertyChanged("MobilePhone");
+					this.OnMobilePhoneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NChar(255)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccessRight", DbType="BigInt NOT NULL")]
+		public long AccessRight
+		{
+			get
+			{
+				return this._AccessRight;
+			}
+			set
+			{
+				if ((this._AccessRight != value))
+				{
+					this.OnAccessRightChanging(value);
+					this.SendPropertyChanging();
+					this._AccessRight = value;
+					this.SendPropertyChanged("AccessRight");
+					this.OnAccessRightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NChar(10)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateTime", DbType="DateTime NOT NULL")]
+		public System.DateTime CreateTime
+		{
+			get
+			{
+				return this._CreateTime;
+			}
+			set
+			{
+				if ((this._CreateTime != value))
+				{
+					this.OnCreateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._CreateTime = value;
+					this.SendPropertyChanged("CreateTime");
+					this.OnCreateTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoginTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> LoginTime
+		{
+			get
+			{
+				return this._LoginTime;
+			}
+			set
+			{
+				if ((this._LoginTime != value))
+				{
+					this.OnLoginTimeChanging(value);
+					this.SendPropertyChanging();
+					this._LoginTime = value;
+					this.SendPropertyChanged("LoginTime");
+					this.OnLoginTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastLoginTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> LastLoginTime
+		{
+			get
+			{
+				return this._LastLoginTime;
+			}
+			set
+			{
+				if ((this._LastLoginTime != value))
+				{
+					this.OnLastLoginTimeChanging(value);
+					this.SendPropertyChanging();
+					this._LastLoginTime = value;
+					this.SendPropertyChanged("LastLoginTime");
+					this.OnLastLoginTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoginCount", DbType="BigInt NOT NULL")]
+		public long LoginCount
+		{
+			get
+			{
+				return this._LoginCount;
+			}
+			set
+			{
+				if ((this._LoginCount != value))
+				{
+					this.OnLoginCountChanging(value);
+					this.SendPropertyChanging();
+					this._LoginCount = value;
+					this.SendPropertyChanged("LoginCount");
+					this.OnLoginCountChanged();
 				}
 			}
 		}

@@ -127,6 +127,8 @@ namespace dztzPro
             }
 
             LeftMenuContent += "<dl id=\"menu-home\" class=\"Hui-menu\"><dd class=\"Hui-menu-item-frist\"><ul><li style=\"margin: 0 0 0 25px; color: #20DA01\"><a href=\"AddNode.aspx\">账簿模板管理</a></li></ul></dd></dl>";
+            LeftMenuContent += "<dl id=\"menu-home\" class=\"Hui-menu\"><dd class=\"Hui-menu-item-frist\"><ul><li style=\"margin: 0 0 0 25px; color: #20DA01\"><a href=\"UserManagement.aspx\">属下用户管理</a></li></ul></dd></dl>";
+            LeftMenuContent += "<dl id=\"menu-home\" class=\"Hui-menu\"><dd class=\"Hui-menu-item-frist\"><ul><li style=\"margin: 0 0 0 25px; color: #20DA01\"><a href=\"AccessLevel.aspx?accessLevel=0\">访问权限管理</a></li></ul></dd></dl>";
             LeftMenuContent += "</aside>";
         }
     }
