@@ -21,6 +21,7 @@ namespace dztzPro
             
             DztzDataContext dbContext = new DztzDataContext();
             var q = from ln in dbContext.LedgerNodes
+                    where (ln.AccessRight & Global.CurrentUser.AccessRight) == ln.AccessRight
                         orderby ln.LedgerNodeType
                         select
                             new {id = ln.Id, type = ln.LedgerNodeType, name = ln.LedgerNodeName };

@@ -35,7 +35,7 @@ namespace dztzPro
                 var q = from ln in dbContext.LedgerNodes
                         where ln.Id == id
                         select
-                            new { station = ln.Station, type = ln.LedgerNodeType, name = ln.LedgerNodeName };
+                            new { type = ln.LedgerNodeType, name = ln.LedgerNodeName };
                 Title = q.First().type + "  --  " + q.First().name + " -- 查询";
                 Global.CurrentSelectedLedger = id;
             }

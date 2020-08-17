@@ -26,19 +26,19 @@
               <th class="text-c" width="16%">接班人员到岗</th>
               <td width="28%">
                 值班员：<span class="qd">
-                  <input id="dg1" title="请输入身份证最后6位" type="text" size="6"/>
+                  <input id="AR1023_dg1" title="请输入身份证最后6位" type="text" size="6"/>
                   <a href="javascript:zjpost('dg1')" class="btn-link"> 证件签到</a>
                 </span>
               </td>
               <td width="28%">
                 助理值班员（内勤）：<span class="qd">
-                  <input id="dg2" title="请输入身份证最后6位" type="text" size="6"/>
+                  <input id="AR1023_dg2" title="请输入身份证最后6位" type="text" size="6"/>
                   <a href="javascript:zjpost('dg2')" class="btn-link"> 证件签到</a>
                 </span>
               </td>
               <td width="28%">
                 助理值班员（外勤）：<span class="qd">
-                  <input id="dg3" title="请输入身份证最后6位" type="text" size="6"/>
+                  <input id="AR1023_dg3" title="请输入身份证最后6位" type="text" size="6"/>
                   <a href="javascript:zjpost('dg3')" class="btn-link"> 证件签到</a>
                 </span>
               </td>
@@ -55,39 +55,39 @@
             <tr>
               <th class="text-c">一、股道占用情况</th>
               <td colspan="3">
-                <textarea rows="8" cols="130" id="one1"></textarea>
+                <textarea rows="8" cols="130" id="AR1023_one1"></textarea>
               </td>
             </tr>
             <tr>
               <th class="text-c">二、区间占用情况</th>
               <td colspan="3">
-                <input type="text" id="tow1" size="100" value=""/>
+                <input type="text" id="AR1023_tow1" size="100" value=""/>
                 <br />
-                <input type="text" id="tow2" size="100" value=""/>
+                <input type="text" id="AR1023_tow2" size="100" value=""/>
                 <br />
-                <input type="text" id="tow3" size="100" value=""/>
+                <input type="text" id="AR1023_tow3" size="100" value=""/>
                 <br />
-                <input type="text" id="tow4" size="100" value=""/>
+                <input type="text" id="AR1023_tow4" size="100" value=""/>
               </td>
             </tr>
             <tr>
               <th class="text-c">三、防溜情况</th>
               <td colspan="3">
-                <textarea rows="8" cols="130" id="three1"></textarea>
+                <textarea rows="8" cols="130" id="AR1023_three1"></textarea>
               </td>
             </tr>
             <tr>
               <th class="text-c">四、装卸防护牌使用情况</th>
               <td colspan="3">
-                <textarea rows="8" cols="130" id="four1"></textarea>
+                <textarea rows="8" cols="130" id="AR1023_four1"></textarea>
               </td>
             </tr>
             <tr>
               <th class="text-c">五、隔离开关</th>
               <td colspan="3">
-                <input type="text" id="five2" value=""/>
-                道送电位&emsp;&emsp;<input type="text" id="five3" value=""/>
-                道断电位&emsp;&emsp;隔离开关钥匙<input type="text" id="five4" value="" size="2"/>
+                <input type="text" id="AR1023_five2" value=""/>
+                道送电位&emsp;&emsp;<input type="text" id="AR1023_five3" value=""/>
+                道断电位&emsp;&emsp;隔离开关钥匙<input type="text" id="AR1023_five4" value="" size="2"/>
                 把&emsp;&emsp;
               </td>
             </tr>
@@ -97,78 +97,78 @@
                 计数器号码：<br />
                 <div id="six1" contenteditable="true"></div>
                 路票号码：<br />
-                <input type="text" size="100" id="six21" value=""/>
+                <input type="text" size="100" id="AR1023_six21" value=""/>
                 <br />
-                <input type="text" size="100" id="six22" value=""/>
+                <input type="text" size="100" id="AR1023_six22" value=""/>
                 <br />
-                <input type="text" size="100" id="six23" value=""/>
+                <input type="text" size="100" id="AR1023_six23" value=""/>
                 <br />
-                <input type="text" size="100" id="six24" value=""/>
+                <input type="text" size="100" id="AR1023_six24" value=""/>
                 <br />
                 设备状态：<br/>
-                <textarea rows="8" cols="130" id="six3"></textarea>
+                <textarea rows="8" cols="130" id="AR1023_six3"></textarea>
                 <br />
                 施封状态：<br />
-                <textarea rows="8" cols="130" id="six4"></textarea>
+                <textarea rows="8" cols="130" id="AR1023_six4"></textarea>
               </td>
             </tr>
             <tr>
               <th class="text-c">七、单据、行车命令、及注意事项</th>
               <td colspan="3">
-                <textarea rows="8" cols="130" id="seven1"></textarea>
+                <textarea rows="8" cols="130" id="AR1023_seven1"></textarea>
               </td>
             </tr>
             <tr>
               <th class="text-c">八、备品及其他注意事项</th>
               <td colspan="3">
-                备品<input type="text" id="eight1" value=""/>
-                备品柜钥匙<input type="text" id="eight2" value="" size="2"/>
+                备品<input type="text" id="AR1023_eight1" value=""/>
+                备品柜钥匙<input type="text" id="AR1023_eight2" value="" size="2"/>
                 把，
-                手摇把保管箱钥匙<input type="text" id="eight3" value="" size="2"/>
+                手摇把保管箱钥匙<input type="text" id="AR1023_eight3" value="" size="2"/>
                 把，
-                列尾主机钥匙<input type="text" id="eight4" value="" size="2"/>
+                列尾主机钥匙<input type="text" id="AR1023_eight4" value="" size="2"/>
                 把<br />
-                人力制动机紧固器<input type="text" id="eight5" value="" size="2"/>
+                人力制动机紧固器<input type="text" id="AR1023_eight5" value="" size="2"/>
                 个，
-                号码：<input type="text" id="eight6" value="" size="70"/>
+                号码：<input type="text" id="AR1023_eight6" value="" size="70"/>
                 <br />
-                列车无线调度通信设备便携台<input type="text" id="eight7" value="" size="2"/>
+                列车无线调度通信设备便携台<input type="text" id="AR1023_eight7" value="" size="2"/>
                 台，
-                作用状态：<input type="text" id="eight8" value="" size="70"/>
+                作用状态：<input type="text" id="AR1023_eight8" value="" size="70"/>
                 <br />
-                列车无线调度通信设备作用状态：<input type="text" id="eight9" value="" size="70"/>
+                列车无线调度通信设备作用状态：<input type="text" id="AR1023_eight9" value="" size="70"/>
                 <br />
-                防溜铁鞋<input type="text" id="eight10" value="" size="2"/>
+                防溜铁鞋<input type="text" id="AR1023_eight10" value="" size="2"/>
                 只，
-                号码：<input type="text" id="eight11" value="" size="70"/>
+                号码：<input type="text" id="AR1023_eight11" value="" size="70"/>
                 <br />
-                防溜铁鞋及人力制动机紧固器钥匙<input type="text" id="eight12" value="" size="2"/>
+                防溜铁鞋及人力制动机紧固器钥匙<input type="text" id="AR1023_eight12" value="" size="2"/>
                 把，
-                语音记录装置作用状态：<input type="text" id="eight13" value="" size="70"/>
+                语音记录装置作用状态：<input type="text" id="AR1023_eight13" value="" size="70"/>
                 <br />
-                灯显设备：<input type="text" id="eight14" value="" size="70"/>
+                灯显设备：<input type="text" id="AR1023_eight14" value="" size="70"/>
                 <br />
                 其他：<br />
-                <textarea id="eight15" cols="130" rows="8"></textarea><br />
+                <textarea id="AR1023_eight15" cols="130" rows="8"></textarea><br />
               </td>
             </tr>
             <tr>
               <th class="text-c">交班者</th>
               <td>
                 值班员：<span class="qd">
-                  <input id="nine1" title="请输入身份证最后6位" type="text" size="6"/>
+                  <input id="AR1023_nine1" title="请输入身份证最后6位" type="text" size="6"/>
                   <a href="javascript:zjpost('nine1')" class="btn-link"> 证件签到</a>
                 </span>
               </td>
               <td>
                 助理值班员（内勤）：<span class="qd">
-                  <input id="nine2" title="请输入身份证最后6位" type="text" size="6"/>
+                  <input id="AR1023_nine2" title="请输入身份证最后6位" type="text" size="6"/>
                   <a href="javascript:zjpost('nine2')" class="btn-link"> 证件签到</a>
                 </span>
               </td>
               <td>
                 助理值班员（外勤）：<span class="qd">
-                  <input id="nine3" title="请输入身份证最后6位" type="text" size="6"/>
+                  <input id="AR1023_nine3" title="请输入身份证最后6位" type="text" size="6"/>
                   <a href="javascript:zjpost('nine3')" class="btn-link"> 证件签到</a>
                 </span>
               </td>
@@ -177,19 +177,19 @@
               <th class="text-c">接班者</th>
               <td>
                 值班员：<span class="qd">
-                <input id="ten1" title="请输入身份证最后6位" type="text" size="6"/>
+                <input id="AR1023_ten1" title="请输入身份证最后6位" type="text" size="6"/>
                 <a href="javascript:zjpost('ten1')" class="btn-link"> 证件签到</a>
                 </span>
               </td>
               <td>
                 助理值班员（内勤）：<span class="qd">
-                  <input id="ten2" title="请输入身份证最后6位" type="text" size="6"/>
+                  <input id="AR1023_ten2" title="请输入身份证最后6位" type="text" size="6"/>
                   <a href="javascript:zjpost('ten2')" class="btn-link"> 证件签到</a>
                 </span>
               </td>
               <td>
                 助理值班员（外勤）：<span class="qd">
-                  <input id="ten3" title="请输入身份证最后6位" type="text" size="6"/>
+                  <input id="AR1023_ten3" title="请输入身份证最后6位" type="text" size="6"/>
                   <a href="javascript:zjpost('ten3')" class="btn-link"> 证件签到</a>
                 </span>
               </td>

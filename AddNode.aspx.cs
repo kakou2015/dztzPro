@@ -10,18 +10,21 @@ namespace dztzPro
 {
     public partial class AddNode : System.Web.UI.Page
     {
+        public long AccessRight = 0;
+        public string AccessRightContent = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Global.CurrentUser != null)
+            {
+                SqlDataSource2.SelectParameters["CurrentLoginUserAR"].DefaultValue = Global.CurrentUser.AccessRight.ToString();
+            }
+
             if (!IsPostBack)
             {
                 // 第一次加载
-                StationList.Items.Add("安康车务段");
                 LedgerTypeList.Items.Add("岗位交接簿");
-                AccessLevelList.Items.Add("1");
-                AccessLevelList.Items.Add("2");
-                AccessLevelList.Items.Add("3");
-                AccessLevelList.Items.Add("4");
-                AccessLevelList.Items.Add("5");
+                AccessRight = Global.CurrentUser.AccessRight;
+                this.AccessRightContent = AccessLevel.GetUIString(Global.CurrentUser.AccessRight);
             }
             else
             {
@@ -36,9 +39,8 @@ namespace dztzPro
 
         protected void Upload_Click(object sender, EventArgs e)
         {
-            var station = StationList.SelectedValue;
             var ledgerNodeType = LedgerTypeList.SelectedValue;
-            var accessLevel = Convert.ToInt32(AccessLevelList.SelectedValue);
+            var accessRight = Convert.ToInt64(Convert.ToInt64(Request.Form["accessRight"].ToString()));
 
             if (FileUploadCtrl.HasFile)
             {
@@ -50,10 +52,9 @@ namespace dztzPro
                 string time = DateTime.Now.ToString();
                 dbContext.LedgerNodes.InsertOnSubmit(new LedgerNode()
                 {
-                    Station = station,
                     LedgerNodeType = ledgerNodeType,
                     LedgerNodeName = LedgerNodeName.Text==""?FileUploadCtrl.FileName:LedgerNodeName.Text,
-                    AccessLevel = accessLevel,
+                    AccessRight = accessRight,
                     CreateTime = time,
                     CreateUser = Global.CurrentUser.UserName,
                     ModifyTime = time,

@@ -33,15 +33,15 @@ namespace dztzPro
     partial void InsertLedgerNodeItem(LedgerNodeItem instance);
     partial void UpdateLedgerNodeItem(LedgerNodeItem instance);
     partial void DeleteLedgerNodeItem(LedgerNodeItem instance);
-    partial void InsertLedgerNode(LedgerNode instance);
-    partial void UpdateLedgerNode(LedgerNode instance);
-    partial void DeleteLedgerNode(LedgerNode instance);
     partial void InsertAccessLevel(AccessLevel instance);
     partial void UpdateAccessLevel(AccessLevel instance);
     partial void DeleteAccessLevel(AccessLevel instance);
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void InsertLedgerNode(LedgerNode instance);
+    partial void UpdateLedgerNode(LedgerNode instance);
+    partial void DeleteLedgerNode(LedgerNode instance);
     #endregion
 		
 		public DztzDataContext() : 
@@ -82,14 +82,6 @@ namespace dztzPro
 			}
 		}
 		
-		public System.Data.Linq.Table<LedgerNode> LedgerNodes
-		{
-			get
-			{
-				return this.GetTable<LedgerNode>();
-			}
-		}
-		
 		public System.Data.Linq.Table<AccessLevel> AccessLevels
 		{
 			get
@@ -103,6 +95,14 @@ namespace dztzPro
 			get
 			{
 				return this.GetTable<User>();
+			}
+		}
+		
+		public System.Data.Linq.Table<LedgerNode> LedgerNodes
+		{
+			get
+			{
+				return this.GetTable<LedgerNode>();
 			}
 		}
 	}
@@ -336,356 +336,6 @@ namespace dztzPro
 					this._TemplateValue = value;
 					this.SendPropertyChanged("TemplateValue");
 					this.OnTemplateValueChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LedgerNode")]
-	public partial class LedgerNode : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _LedgerNodeType;
-		
-		private string _LedgerNodeName;
-		
-		private string _Station;
-		
-		private int _AccessLevel;
-		
-		private string _CreateUser;
-		
-		private string _CreateTime;
-		
-		private string _ModifyUser;
-		
-		private string _ModifyTime;
-		
-		private string _Reserved1;
-		
-		private string _Reserved2;
-		
-		private string _TemplateFileName;
-		
-		private string _TemplateContent;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnLedgerNodeTypeChanging(string value);
-    partial void OnLedgerNodeTypeChanged();
-    partial void OnLedgerNodeNameChanging(string value);
-    partial void OnLedgerNodeNameChanged();
-    partial void OnStationChanging(string value);
-    partial void OnStationChanged();
-    partial void OnAccessLevelChanging(int value);
-    partial void OnAccessLevelChanged();
-    partial void OnCreateUserChanging(string value);
-    partial void OnCreateUserChanged();
-    partial void OnCreateTimeChanging(string value);
-    partial void OnCreateTimeChanged();
-    partial void OnModifyUserChanging(string value);
-    partial void OnModifyUserChanged();
-    partial void OnModifyTimeChanging(string value);
-    partial void OnModifyTimeChanged();
-    partial void OnReserved1Changing(string value);
-    partial void OnReserved1Changed();
-    partial void OnReserved2Changing(string value);
-    partial void OnReserved2Changed();
-    partial void OnTemplateFileNameChanging(string value);
-    partial void OnTemplateFileNameChanged();
-    partial void OnTemplateContentChanging(string value);
-    partial void OnTemplateContentChanged();
-    #endregion
-		
-		public LedgerNode()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LedgerNodeType", DbType="NVarChar(250)")]
-		public string LedgerNodeType
-		{
-			get
-			{
-				return this._LedgerNodeType;
-			}
-			set
-			{
-				if ((this._LedgerNodeType != value))
-				{
-					this.OnLedgerNodeTypeChanging(value);
-					this.SendPropertyChanging();
-					this._LedgerNodeType = value;
-					this.SendPropertyChanged("LedgerNodeType");
-					this.OnLedgerNodeTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LedgerNodeName", DbType="NVarChar(250)")]
-		public string LedgerNodeName
-		{
-			get
-			{
-				return this._LedgerNodeName;
-			}
-			set
-			{
-				if ((this._LedgerNodeName != value))
-				{
-					this.OnLedgerNodeNameChanging(value);
-					this.SendPropertyChanging();
-					this._LedgerNodeName = value;
-					this.SendPropertyChanged("LedgerNodeName");
-					this.OnLedgerNodeNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Station", DbType="NVarChar(250)")]
-		public string Station
-		{
-			get
-			{
-				return this._Station;
-			}
-			set
-			{
-				if ((this._Station != value))
-				{
-					this.OnStationChanging(value);
-					this.SendPropertyChanging();
-					this._Station = value;
-					this.SendPropertyChanged("Station");
-					this.OnStationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccessLevel", DbType="Int NOT NULL")]
-		public int AccessLevel
-		{
-			get
-			{
-				return this._AccessLevel;
-			}
-			set
-			{
-				if ((this._AccessLevel != value))
-				{
-					this.OnAccessLevelChanging(value);
-					this.SendPropertyChanging();
-					this._AccessLevel = value;
-					this.SendPropertyChanged("AccessLevel");
-					this.OnAccessLevelChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateUser", DbType="NVarChar(250)")]
-		public string CreateUser
-		{
-			get
-			{
-				return this._CreateUser;
-			}
-			set
-			{
-				if ((this._CreateUser != value))
-				{
-					this.OnCreateUserChanging(value);
-					this.SendPropertyChanging();
-					this._CreateUser = value;
-					this.SendPropertyChanged("CreateUser");
-					this.OnCreateUserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateTime", DbType="NVarChar(250)")]
-		public string CreateTime
-		{
-			get
-			{
-				return this._CreateTime;
-			}
-			set
-			{
-				if ((this._CreateTime != value))
-				{
-					this.OnCreateTimeChanging(value);
-					this.SendPropertyChanging();
-					this._CreateTime = value;
-					this.SendPropertyChanged("CreateTime");
-					this.OnCreateTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifyUser", DbType="NVarChar(250)")]
-		public string ModifyUser
-		{
-			get
-			{
-				return this._ModifyUser;
-			}
-			set
-			{
-				if ((this._ModifyUser != value))
-				{
-					this.OnModifyUserChanging(value);
-					this.SendPropertyChanging();
-					this._ModifyUser = value;
-					this.SendPropertyChanged("ModifyUser");
-					this.OnModifyUserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifyTime", DbType="NVarChar(250)")]
-		public string ModifyTime
-		{
-			get
-			{
-				return this._ModifyTime;
-			}
-			set
-			{
-				if ((this._ModifyTime != value))
-				{
-					this.OnModifyTimeChanging(value);
-					this.SendPropertyChanging();
-					this._ModifyTime = value;
-					this.SendPropertyChanged("ModifyTime");
-					this.OnModifyTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Reserved1", DbType="NVarChar(250)")]
-		public string Reserved1
-		{
-			get
-			{
-				return this._Reserved1;
-			}
-			set
-			{
-				if ((this._Reserved1 != value))
-				{
-					this.OnReserved1Changing(value);
-					this.SendPropertyChanging();
-					this._Reserved1 = value;
-					this.SendPropertyChanged("Reserved1");
-					this.OnReserved1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Reserved2", DbType="NVarChar(250)")]
-		public string Reserved2
-		{
-			get
-			{
-				return this._Reserved2;
-			}
-			set
-			{
-				if ((this._Reserved2 != value))
-				{
-					this.OnReserved2Changing(value);
-					this.SendPropertyChanging();
-					this._Reserved2 = value;
-					this.SendPropertyChanged("Reserved2");
-					this.OnReserved2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TemplateFileName", DbType="NVarChar(250)")]
-		public string TemplateFileName
-		{
-			get
-			{
-				return this._TemplateFileName;
-			}
-			set
-			{
-				if ((this._TemplateFileName != value))
-				{
-					this.OnTemplateFileNameChanging(value);
-					this.SendPropertyChanging();
-					this._TemplateFileName = value;
-					this.SendPropertyChanged("TemplateFileName");
-					this.OnTemplateFileNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TemplateContent", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string TemplateContent
-		{
-			get
-			{
-				return this._TemplateContent;
-			}
-			set
-			{
-				if ((this._TemplateContent != value))
-				{
-					this.OnTemplateContentChanging(value);
-					this.SendPropertyChanging();
-					this._TemplateContent = value;
-					this.SendPropertyChanged("TemplateContent");
-					this.OnTemplateContentChanged();
 				}
 			}
 		}
@@ -1170,6 +820,356 @@ namespace dztzPro
 					this._LoginCount = value;
 					this.SendPropertyChanged("LoginCount");
 					this.OnLoginCountChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LedgerNode")]
+	public partial class LedgerNode : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _LedgerNodeType;
+		
+		private string _LedgerNodeName;
+		
+		private long _AccessRight;
+		
+		private string _CreateUser;
+		
+		private string _CreateTime;
+		
+		private string _ModifyUser;
+		
+		private string _ModifyTime;
+		
+		private string _Reserved1;
+		
+		private string _Reserved2;
+		
+		private string _Reserved3;
+		
+		private string _TemplateFileName;
+		
+		private string _TemplateContent;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnLedgerNodeTypeChanging(string value);
+    partial void OnLedgerNodeTypeChanged();
+    partial void OnLedgerNodeNameChanging(string value);
+    partial void OnLedgerNodeNameChanged();
+    partial void OnAccessRightChanging(long value);
+    partial void OnAccessRightChanged();
+    partial void OnCreateUserChanging(string value);
+    partial void OnCreateUserChanged();
+    partial void OnCreateTimeChanging(string value);
+    partial void OnCreateTimeChanged();
+    partial void OnModifyUserChanging(string value);
+    partial void OnModifyUserChanged();
+    partial void OnModifyTimeChanging(string value);
+    partial void OnModifyTimeChanged();
+    partial void OnReserved1Changing(string value);
+    partial void OnReserved1Changed();
+    partial void OnReserved2Changing(string value);
+    partial void OnReserved2Changed();
+    partial void OnReserved3Changing(string value);
+    partial void OnReserved3Changed();
+    partial void OnTemplateFileNameChanging(string value);
+    partial void OnTemplateFileNameChanged();
+    partial void OnTemplateContentChanging(string value);
+    partial void OnTemplateContentChanged();
+    #endregion
+		
+		public LedgerNode()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LedgerNodeType", DbType="NVarChar(250)")]
+		public string LedgerNodeType
+		{
+			get
+			{
+				return this._LedgerNodeType;
+			}
+			set
+			{
+				if ((this._LedgerNodeType != value))
+				{
+					this.OnLedgerNodeTypeChanging(value);
+					this.SendPropertyChanging();
+					this._LedgerNodeType = value;
+					this.SendPropertyChanged("LedgerNodeType");
+					this.OnLedgerNodeTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LedgerNodeName", DbType="NVarChar(250)")]
+		public string LedgerNodeName
+		{
+			get
+			{
+				return this._LedgerNodeName;
+			}
+			set
+			{
+				if ((this._LedgerNodeName != value))
+				{
+					this.OnLedgerNodeNameChanging(value);
+					this.SendPropertyChanging();
+					this._LedgerNodeName = value;
+					this.SendPropertyChanged("LedgerNodeName");
+					this.OnLedgerNodeNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccessRight", DbType="BigInt NOT NULL")]
+		public long AccessRight
+		{
+			get
+			{
+				return this._AccessRight;
+			}
+			set
+			{
+				if ((this._AccessRight != value))
+				{
+					this.OnAccessRightChanging(value);
+					this.SendPropertyChanging();
+					this._AccessRight = value;
+					this.SendPropertyChanged("AccessRight");
+					this.OnAccessRightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateUser", DbType="NVarChar(250)")]
+		public string CreateUser
+		{
+			get
+			{
+				return this._CreateUser;
+			}
+			set
+			{
+				if ((this._CreateUser != value))
+				{
+					this.OnCreateUserChanging(value);
+					this.SendPropertyChanging();
+					this._CreateUser = value;
+					this.SendPropertyChanged("CreateUser");
+					this.OnCreateUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateTime", DbType="NVarChar(250)")]
+		public string CreateTime
+		{
+			get
+			{
+				return this._CreateTime;
+			}
+			set
+			{
+				if ((this._CreateTime != value))
+				{
+					this.OnCreateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._CreateTime = value;
+					this.SendPropertyChanged("CreateTime");
+					this.OnCreateTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifyUser", DbType="NVarChar(250)")]
+		public string ModifyUser
+		{
+			get
+			{
+				return this._ModifyUser;
+			}
+			set
+			{
+				if ((this._ModifyUser != value))
+				{
+					this.OnModifyUserChanging(value);
+					this.SendPropertyChanging();
+					this._ModifyUser = value;
+					this.SendPropertyChanged("ModifyUser");
+					this.OnModifyUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifyTime", DbType="NVarChar(250)")]
+		public string ModifyTime
+		{
+			get
+			{
+				return this._ModifyTime;
+			}
+			set
+			{
+				if ((this._ModifyTime != value))
+				{
+					this.OnModifyTimeChanging(value);
+					this.SendPropertyChanging();
+					this._ModifyTime = value;
+					this.SendPropertyChanged("ModifyTime");
+					this.OnModifyTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Reserved1", DbType="NVarChar(250)")]
+		public string Reserved1
+		{
+			get
+			{
+				return this._Reserved1;
+			}
+			set
+			{
+				if ((this._Reserved1 != value))
+				{
+					this.OnReserved1Changing(value);
+					this.SendPropertyChanging();
+					this._Reserved1 = value;
+					this.SendPropertyChanged("Reserved1");
+					this.OnReserved1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Reserved2", DbType="NVarChar(250)")]
+		public string Reserved2
+		{
+			get
+			{
+				return this._Reserved2;
+			}
+			set
+			{
+				if ((this._Reserved2 != value))
+				{
+					this.OnReserved2Changing(value);
+					this.SendPropertyChanging();
+					this._Reserved2 = value;
+					this.SendPropertyChanged("Reserved2");
+					this.OnReserved2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Reserved3", DbType="NVarChar(250)")]
+		public string Reserved3
+		{
+			get
+			{
+				return this._Reserved3;
+			}
+			set
+			{
+				if ((this._Reserved3 != value))
+				{
+					this.OnReserved3Changing(value);
+					this.SendPropertyChanging();
+					this._Reserved3 = value;
+					this.SendPropertyChanged("Reserved3");
+					this.OnReserved3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TemplateFileName", DbType="NVarChar(250)")]
+		public string TemplateFileName
+		{
+			get
+			{
+				return this._TemplateFileName;
+			}
+			set
+			{
+				if ((this._TemplateFileName != value))
+				{
+					this.OnTemplateFileNameChanging(value);
+					this.SendPropertyChanging();
+					this._TemplateFileName = value;
+					this.SendPropertyChanged("TemplateFileName");
+					this.OnTemplateFileNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TemplateContent", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string TemplateContent
+		{
+			get
+			{
+				return this._TemplateContent;
+			}
+			set
+			{
+				if ((this._TemplateContent != value))
+				{
+					this.OnTemplateContentChanging(value);
+					this.SendPropertyChanging();
+					this._TemplateContent = value;
+					this.SendPropertyChanged("TemplateContent");
+					this.OnTemplateContentChanged();
 				}
 			}
 		}

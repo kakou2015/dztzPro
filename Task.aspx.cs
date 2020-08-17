@@ -11,6 +11,7 @@ namespace dztzPro
 {
     public partial class Task : System.Web.UI.Page
     {
+        public string AccessRight { get; set; }
         public string LedgerItemId { get; set; }
         public string LedgerNodeId { get; set; }
         public string Content { get; set; }
@@ -22,6 +23,11 @@ namespace dztzPro
         {
             try
             {
+                if (Global.CurrentUser != null)
+                {
+                    AccessRight = Global.CurrentUser.AccessRight.ToString();
+                }
+
                 JsonContent = "";
                 DztzDataContext dbContext = new DztzDataContext();
                 var id = Convert.ToInt32(Request["ledgerNodeId"]);
@@ -46,7 +52,6 @@ namespace dztzPro
                     else if(action == "2")
                     {
                         // display template to display the data.
-                        //只能修改未完成的账簿，同时只能存在一张未完成的账簿
                         if(itemId == 0)
                         {
                             Response.Redirect("search.aspx?action=2&ledgerNodeId=" + id.ToString());

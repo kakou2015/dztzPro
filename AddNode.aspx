@@ -19,22 +19,7 @@
                         </asp:DropDownList>
                     </td>
                 </tr>
-                <tr>
-                    <td class="auto-style1">车站：&nbsp;&nbsp;
-                    </td>
-                    <td>
-                        <asp:DropDownList ID="StationList" runat="server" Height="30px" Width="500px">
-                        </asp:DropDownList>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style1">访问权限：
-                    </td>
-                    <td>
-                        <asp:DropDownList ID="AccessLevelList" runat="server" Height="30px" Width="500px">
-                        </asp:DropDownList>
-                    </td>
-                </tr>
+                <%= AccessRightContent %>
                 <tr>
                     <td class="auto-style1">摸板路径：
                     </td>
@@ -57,8 +42,7 @@
                     <asp:BoundField DataField="Id" HeaderText="序号" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
                     <asp:BoundField DataField="LedgerNodeType" HeaderText="账簿类别" SortExpression="LedgerNodeType" />
                     <asp:BoundField DataField="LedgerNodeName" HeaderText="账簿名称" SortExpression="LedgerNodeName" />
-                    <asp:BoundField DataField="Station" HeaderText="站点" SortExpression="Station" />
-                    <asp:BoundField DataField="AccessLevel" HeaderText="访问权限" SortExpression="AccessLevel" />
+                    <asp:BoundField DataField="AccessRight" HeaderText="访问权限" SortExpression="AccessRight" />
                     <asp:BoundField DataField="CreateUser" HeaderText="创建人" SortExpression="CreateUser" />
                     <asp:BoundField DataField="CreateTime" HeaderText="创建时间" SortExpression="CreateTime" />
                     <asp:BoundField DataField="ModifyUser" HeaderText="修改人" SortExpression="ModifyUser" />
@@ -77,7 +61,13 @@
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" CssClass="Freezing" />
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dztzConnectionString %>" SelectCommand="SELECT DISTINCT [Id], [Station],[LedgerNodeName], [LedgerNodeType], [AccessLevel], [CreateUser], [CreateTime], [ModifyUser], [ModifyTime], [TemplateFileName] FROM [ledgerNode] ORDER BY [Id] DESC, [ModifyTime] DESC, [CreateTime] DESC"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dztzConnectionString %>" 
+                SelectCommand="SELECT DISTINCT [Id], [LedgerNodeName], [LedgerNodeType], [AccessRight], [CreateUser], [CreateTime], [ModifyUser], [ModifyTime], [TemplateFileName] FROM [ledgerNode]  WHERE (([AccessRight] & @CurrentLoginUserAR) = [AccessRight]) ORDER BY [Id] DESC, [ModifyTime] DESC, [CreateTime] DESC"
+                ProviderName="<%$ ConnectionStrings:dztzConnectionString.ProviderName %>">
+                <SelectParameters> 
+                    <asp:Parameter DefaultValue="1" Name="CurrentLoginUserAR" Type="Int64" /> 
+                </SelectParameters>
+            </asp:SqlDataSource>
         </form>
     </div>
 </asp:Content>

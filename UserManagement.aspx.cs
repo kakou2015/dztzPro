@@ -39,7 +39,7 @@ namespace dztzPro
                         this.tbDepartment.Text = node.Department;
                         this.tbOccupation.Text = node.Occupation;
                         this.tbSuperior.Text = node.Superior.ToString();
-                        this.AccessRightContent = "<td>" + AccessLevel.GetUIString(node.AccessRight) + "</td>";
+                        this.AccessRightContent = AccessLevel.GetUIString(node.AccessRight);
                         this.tbDescription.Text = node.Description;
                     }
 
@@ -48,7 +48,7 @@ namespace dztzPro
                 else
                 {
                     AccessRight = Global.CurrentUser.AccessRight;
-                    this.AccessRightContent = "<td>" + AccessLevel.GetUIString(Global.CurrentUser.AccessRight) + "</td>";
+                    this.AccessRightContent = AccessLevel.GetUIString(Global.CurrentUser.AccessRight);
                     this.SaveBttn.Text = "新建";
                 }
 

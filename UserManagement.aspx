@@ -53,15 +53,8 @@
                         <asp:TextBox ID="tbSuperior" runat="server" Height="20px" Width="500px"></asp:TextBox>
                     </td>
                 </tr>
+                <%= AccessRightContent %>
                 <tr>
-                    <td class="auto-style1">访问权限：&nbsp;
-                    </td>
-                    <td><input id="accessRight" name="accessRight" value=<%= AccessRight %>></td>
-                </tr>
-                <tr>
-                    <td />
-                    <%= AccessRightContent %>
-                </tr>                <tr>
                     <td class="auto-style1">手机号：&nbsp;
                     </td>
                     <td>

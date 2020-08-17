@@ -13,7 +13,9 @@ namespace dztzPro
         private long currentSelectedAccessLevel = 0;
         static public string GetUIString(long accessRight)
         {
-            string html = "<table>";
+                
+            string html = "<tr><td class=\"auto-style1\">访问权限：&nbsp;</td><td><input id=\"accessRight\" name=\"accessRight\" value=\""
+                + accessRight.ToString() +"\"></td></tr><tr><td></td><td><table>";
             DztzDataContext dbContext = new DztzDataContext();
             foreach(var accessLevel in dbContext.AccessLevels)
             {
@@ -25,7 +27,7 @@ namespace dztzPro
                 }
             }
 
-            html += "</table>";
+            html += "</table></td></tr>";
             return html;
         }
 

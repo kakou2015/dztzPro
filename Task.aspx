@@ -5,6 +5,7 @@
     <input type="hidden" id="jsonContent" value="<%= JsonContent %>" />
     <input type="hidden" id="ledgerItemId" value="<%= LedgerItemId %>" />
     <input type="hidden" id="ledgerNodeId" value="<%= LedgerNodeId %>" />
+    <input type="hidden" id="accessRight" value="<%= AccessRight %>" />
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeaderContent" runat="server">
@@ -27,4 +28,31 @@
     <li>
         &nbsp;&nbsp;&nbsp;&nbsp;
     </li>
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        var accessR = document.getElementById('accessRight');
+        var AR = parseInt(accessR.value);
+        var inputs = document.getElementsByTagName('input');
+
+        var itemId = document.getElementById('ledgerItemId')
+        for (var i = 0; i < inputs.length; i++) {
+            var index = inputs[i].id.search('_');
+            var ar = parseInt(inputs[i].id.substring(2, index));
+            if((ar & AR) != ar)
+            {
+                inputs[i].disabled = true;
+            }
+        }
+
+        var textareas = document.getElementsByTagName('textarea');
+        for (var i = 0; i < textareas.length; i++) {
+            var index = textareas[i].id.search('_');
+            var ar = parseInt(textareas[i].id.substring(2, index));
+            if ((ar & AR) != ar) {
+                textareas[i].disabled = true;
+            }
+        }
+    });
+    </script>
 </asp:Content>
