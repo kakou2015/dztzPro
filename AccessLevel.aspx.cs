@@ -17,17 +17,12 @@ namespace dztzPro
             DztzDataContext dbContext = new DztzDataContext();
             foreach(var accessLevel in dbContext.AccessLevels)
             {
-                html += "<p><input id=\"al_" + accessLevel.ALValue.ToString() + "\" type=\"checkbox\" Height=\"20px\" Width=\"500px\"";
                 if((accessLevel.ALValue & accessRight) == accessLevel.ALValue)
                 {
-                    html += " checked=\"true\"";
+                    html += "<p><input id=\"al_" + accessLevel.ALValue.ToString() 
+                        + "\" type=\"checkbox\" Height=\"20px\" Width=\"500px\" checked=\"true\" onclick=\"updateAccessRight(this.id);\"/><label for=\"al_" 
+                        + accessLevel.ALValue.ToString() + "\">" + accessLevel.ALName + "</label></p>";
                 }
-                else
-                {
-                    html += "";
-                }
-
-                html += " onclick=\"updateAccessRight(this.id);\"/><label for=\"al_" + accessLevel.ALValue.ToString() + "\">" + accessLevel.ALName + "</label></p>";
             }
 
             html += "</table>";

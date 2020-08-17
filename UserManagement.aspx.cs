@@ -10,22 +10,29 @@ namespace dztzPro
 {
     public partial class UserManagement : System.Web.UI.Page
     {
-        public long UserId = 0;
+        public long SelectedUserId = 0;
         public long AccessRight = 0;
         public string AccessRightContent = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
+                if (Global.CurrentUser != null)
+                {
+                    SqlDataSource1.SelectParameters["CurrentLoginUser"].DefaultValue = Global.CurrentUser.UserId.ToString();
+                }
+
                 DztzDataContext dbContext = new DztzDataContext();
-                UserId = Convert.ToInt64(Request["userId"]);
-                var node = dbContext.Users.SingleOrDefault(ln => ln.UserId == UserId);
+                SelectedUserId = Convert.ToInt64(Request["userId"]);
+                var node = dbContext.Users.SingleOrDefault(ln => ln.UserId == SelectedUserId);
                 if (node != null)
                 {
                     if (!Page.IsPostBack)
                     {
                         AccessRight = node.AccessRight;
                         this.tbLoginName.Text = node.LoginName;
+                        this.tbPassword.Attributes["value"] = node.UserPassword;
+                        this.tbRePasswird.Attributes["value"] = node.UserPassword;
                         this.tbUserName.Text = node.UserName;
                         this.tbMobilePhone.Text = node.MobilePhone;
                         this.tbEmail.Text = node.Email;
@@ -67,7 +74,7 @@ namespace dztzPro
                 string time = DateTime.Now.ToString();
                 if (SaveBttn.Text == "新建")//新建
                 {
-                    var node = dbContext.Users.SingleOrDefault(u => u.UserId == this.UserId);
+                    var node = dbContext.Users.SingleOrDefault(u => u.UserId == this.SelectedUserId);
                     if (node != null)
                     {
                         Response.Write("用户已存在，不能新建");
@@ -94,7 +101,7 @@ namespace dztzPro
                 }
                 else//更新
                 {
-                    var node = dbContext.Users.SingleOrDefault(u => u.UserId == this.UserId);
+                    var node = dbContext.Users.SingleOrDefault(u => u.UserId == this.SelectedUserId);
                     if(node != null)
                     {
                         node.LoginName = this.tbLoginName.Text;

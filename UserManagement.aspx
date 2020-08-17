@@ -122,7 +122,13 @@
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" CssClass="Freezing" />
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dztzConnectionString %>" SelectCommand="SELECT [UserId],[LoginName], [UserName],[UserPassword],[MobilePhone],[Email],[Department],[Occupation],[Superior],[AccessRight],[Description],[CreateTime],[LoginTime],[LastLoginTime],[LoginCount] FROM [User]" ProviderName="<%$ ConnectionStrings:dztzConnectionString.ProviderName %>"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dztzConnectionString %>" 
+                SelectCommand="SELECT [UserId],[LoginName], [UserName],[UserPassword],[MobilePhone],[Email],[Department],[Occupation],[Superior],[AccessRight],[Description],[CreateTime],[LoginTime],[LastLoginTime],[LoginCount] FROM [User] WHERE ([Superior]=@CurrentLoginUser) OR ([UserId]=@CurrentLoginUser) OR (@CurrentLoginUser = 1)" 
+                ProviderName="<%$ ConnectionStrings:dztzConnectionString.ProviderName %>">
+                <SelectParameters> 
+                    <asp:Parameter DefaultValue="1" Name="CurrentLoginUser" Type="Int64" /> 
+                </SelectParameters>
+            </asp:SqlDataSource>
         </form>
     </div>
 </asp:Content>
