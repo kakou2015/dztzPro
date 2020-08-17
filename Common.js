@@ -124,6 +124,25 @@ Date.prototype.format = function (format) {
 }
 
 
+function updateAccessRight(accessLevel) {
+    var al = accessLevel.substr( 3, accessLevel.length-3);
+    var AL = parseInt(al);
+    var accessL = document.getElementById(accessLevel);
+    var ischecked = accessL.checked;
+    var accessR = document.getElementById('accessRight');
+    var AR = parseInt(accessR.value);
+    if (ischecked)
+    {
+        AR = AR | AL;
+    }
+    else
+    {
+        AR = AR & (~AL);
+    }
+
+    var number = new Number(AR);
+    accessR.value = number.toString();
+}
 
 //版权声明：本文为CSDN博主「蒙奇·D·伊丽莎白」的原创文章，遵循CC 4.0 BY - SA版权协议，转载请附上原文出处链接及本声明。
 //原文链接：https://blog.csdn.net/xif3681/article/details/81772432

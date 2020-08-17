@@ -16,12 +16,21 @@ namespace dztzPro
 
         protected void LoginBttn_Click(object sender, EventArgs e)
 		{
-			if (txtName.Text == "admin" && txtPassword.Text == "111111")
+            DztzDataContext dbContext = new DztzDataContext();
+            var node = dbContext.Users.SingleOrDefault(ln => ln.LoginName == txtName.Text);
+            if (node != null && node.UserPassword == txtPassword.Text)
 			{
-				Session["user"] = txtName;
-                Global.CurrentUser = txtName.Text; 
+                Global.CurrentUser = node;
+                node.LoginCount += 1;
+                node.LastLoginTime = node.LoginTime;
+                node.LoginTime = DateTime.Now;
+                dbContext.SubmitChanges();
 				Response.Redirect("Index.aspx");
 			}
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
 		}
 	}
 }

@@ -11,14 +11,14 @@ namespace dztzPro
 {
     public class Global : HttpApplication
     {
-        public static string CurrentUser { get; set; }
+        public static User CurrentUser { get; set; }
         public static int CurrentSelectedLedger { get; set; }
         void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            CurrentUser = "";
+            CurrentUser = null;
             CurrentSelectedLedger = 0;
         }
     }

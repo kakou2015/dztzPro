@@ -10,23 +10,29 @@ namespace dztzPro
 {
     public partial class UserManagement : System.Web.UI.Page
     {
+        public long UserId = 0;
+        public long AccessRight = 0;
+        public string AccessRightContent = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
                 DztzDataContext dbContext = new DztzDataContext();
-                var userId = Convert.ToInt64(Request["userId"]);
-                var node = dbContext.Users.SingleOrDefault(ln => ln.UserId == userId);
+                UserId = Convert.ToInt64(Request["userId"]);
+                var node = dbContext.Users.SingleOrDefault(ln => ln.UserId == UserId);
                 if (node != null)
                 {
                     if (!Page.IsPostBack)
                     {
-                        this.tbDepartment.Text = node.Department.ToString();
+                        AccessRight = node.AccessRight;
                         this.tbLoginName.Text = node.LoginName;
                         this.tbUserName.Text = node.UserName;
                         this.tbMobilePhone.Text = node.MobilePhone;
                         this.tbEmail.Text = node.Email;
-                        this.tbAccessRight.Text = node.AccessRight.ToString();
+                        this.tbDepartment.Text = node.Department;
+                        this.tbOccupation.Text = node.Occupation;
+                        this.tbSuperior.Text = node.Superior.ToString();
+                        this.AccessRightContent = "<td>" + AccessLevel.GetUIString(node.AccessRight) + "</td>";
                         this.tbDescription.Text = node.Description;
                     }
 
@@ -34,6 +40,8 @@ namespace dztzPro
                 }
                 else
                 {
+                    AccessRight = Global.CurrentUser.AccessRight;
+                    this.AccessRightContent = "<td>" + AccessLevel.GetUIString(Global.CurrentUser.AccessRight) + "</td>";
                     this.SaveBttn.Text = "新建";
                 }
 
@@ -46,6 +54,69 @@ namespace dztzPro
 
         protected void Save_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if(this.tbPassword.Text != this.tbRePasswird.Text)
+                {
+                    Response.Write("2次输入的密码不一致");
+                    return;
+                }
+
+                var loginName = this.tbLoginName.Text;
+                DztzDataContext dbContext = new DztzDataContext();
+                string time = DateTime.Now.ToString();
+                if (SaveBttn.Text == "新建")//新建
+                {
+                    var node = dbContext.Users.SingleOrDefault(u => u.UserId == this.UserId);
+                    if (node != null)
+                    {
+                        Response.Write("用户已存在，不能新建");
+                        return;
+                    }
+                    else
+                    {
+                        dbContext.Users.InsertOnSubmit(new User()
+                        {
+                            LoginName = this.tbLoginName.Text,
+                            UserPassword = this.tbPassword.Text,
+                            UserName = this.tbUserName.Text,
+                            MobilePhone = this.tbMobilePhone.Text,
+                            Email = this.tbEmail.Text,
+                            Department = this.tbDepartment.Text,
+                            Occupation = this.tbOccupation.Text,
+                            Description = this.tbDescription.Text,
+                            AccessRight = Convert.ToInt64(Request.Form["accessRight"].ToString()),
+                            Superior = Convert.ToInt64(this.tbSuperior.Text),
+                            CreateTime = DateTime.Now,
+                            LoginCount = 0
+                        });
+                    }
+                }
+                else//更新
+                {
+                    var node = dbContext.Users.SingleOrDefault(u => u.UserId == this.UserId);
+                    if(node != null)
+                    {
+                        node.LoginName = this.tbLoginName.Text;
+                        node.UserPassword = this.tbPassword.Text;
+                        node.UserName = this.tbUserName.Text;
+                        node.MobilePhone = this.tbMobilePhone.Text;
+                        node.Email = this.tbEmail.Text;
+                        node.Department = this.tbDepartment.Text;
+                        node.Occupation = this.tbOccupation.Text;
+                        node.Description = this.tbDescription.Text;
+                        node.AccessRight = Convert.ToInt64(Request.Form["accessRight"].ToString());
+                        node.Superior = Convert.ToInt64(this.tbSuperior.Text);
+                    }
+                }
+
+                dbContext.SubmitChanges();
+            }
+            catch (Exception exp)
+            {
+                Console.Out.WriteLine(exp.ToString());
+            }
+
             Response.Redirect("UserManagement.aspx");
         }
 

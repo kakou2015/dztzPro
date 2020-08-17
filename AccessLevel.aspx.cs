@@ -11,6 +11,29 @@ namespace dztzPro
     public partial class AccessLevel : System.Web.UI.Page
     {
         private long currentSelectedAccessLevel = 0;
+        static public string GetUIString(long accessRight)
+        {
+            string html = "<table>";
+            DztzDataContext dbContext = new DztzDataContext();
+            foreach(var accessLevel in dbContext.AccessLevels)
+            {
+                html += "<p><input id=\"al_" + accessLevel.ALValue.ToString() + "\" type=\"checkbox\" Height=\"20px\" Width=\"500px\"";
+                if((accessLevel.ALValue & accessRight) == accessLevel.ALValue)
+                {
+                    html += " checked=\"true\"";
+                }
+                else
+                {
+                    html += "";
+                }
+
+                html += " onclick=\"updateAccessRight(this.id);\"/><label for=\"al_" + accessLevel.ALValue.ToString() + "\">" + accessLevel.ALName + "</label></p>";
+            }
+
+            html += "</table>";
+            return html;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try

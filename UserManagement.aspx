@@ -40,13 +40,28 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">访问权限：&nbsp;
+                    <td class="auto-style1">职位：&nbsp;
                     </td>
                     <td>
-                        <asp:TextBox ID="tbAccessRight" runat="server" Height="20px" Width="500px"></asp:TextBox>
+                        <asp:TextBox ID="tbOccupation" runat="server" Height="20px" Width="500px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
+                    <td class="auto-style1">上级ID：&nbsp;
+                    </td>
+                    <td>
+                        <asp:TextBox ID="tbSuperior" runat="server" Height="20px" Width="500px"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style1">访问权限：&nbsp;
+                    </td>
+                    <td><input id="accessRight" name="accessRight" value=<%= AccessRight %>></td>
+                </tr>
+                <tr>
+                    <td />
+                    <%= AccessRightContent %>
+                </tr>                <tr>
                     <td class="auto-style1">手机号：&nbsp;
                     </td>
                     <td>
@@ -80,11 +95,13 @@
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="UserId" HeaderText="用户Id" ReadOnly="True"  SortExpression="UserId" />
-                    <asp:BoundField DataField="Department" HeaderText="部门" SortExpression="Department" />
                     <asp:BoundField DataField="LoginName" HeaderText="登录名" SortExpression="LoginName" />
                     <asp:BoundField DataField="UserName" HeaderText="姓名" SortExpression="UserName" />
                     <asp:BoundField DataField="MobilePhone" HeaderText="手机号" SortExpression="MobilePhone" />
                     <asp:BoundField DataField="Email" HeaderText="电子邮件" SortExpression="Email" />
+                    <asp:BoundField DataField="Department" HeaderText="部门" SortExpression="Department" />
+                    <asp:BoundField DataField="Occupation" HeaderText="职位" SortExpression="Occupation" />
+                    <asp:BoundField DataField="Superior" HeaderText="上级Id" SortExpression="Superior" />
                     <asp:BoundField DataField="AccessRight" HeaderText="访问权限" SortExpression="AccessRight" />
                     <asp:BoundField DataField="Description" HeaderText="备注" SortExpression="Description" />
                     <asp:BoundField DataField="CreateTime" HeaderText="创建时间" SortExpression="CreateTime" />
@@ -105,7 +122,7 @@
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" CssClass="Freezing" />
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dztzConnectionString %>" SelectCommand="SELECT [UserId],[Department],[LoginName], [UserName],[UserPassword],[MobilePhone],[Email],[AccessRight],[Description],[CreateTime],[LoginTime],[LastLoginTime],[LoginCount] FROM [User]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dztzConnectionString %>" SelectCommand="SELECT [UserId],[LoginName], [UserName],[UserPassword],[MobilePhone],[Email],[Department],[Occupation],[Superior],[AccessRight],[Description],[CreateTime],[LoginTime],[LastLoginTime],[LoginCount] FROM [User]" ProviderName="<%$ ConnectionStrings:dztzConnectionString.ProviderName %>"></asp:SqlDataSource>
         </form>
     </div>
 </asp:Content>

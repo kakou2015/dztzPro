@@ -20,7 +20,7 @@ namespace dztzPro
                     //display template to let user to fill data,
                     // Use ajax to save data.
                     Session["user"] = null; 
-                    Global.CurrentUser = "";
+                    Global.CurrentUser = null;
                 }
             }
 

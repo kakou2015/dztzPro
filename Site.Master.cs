@@ -12,7 +12,7 @@ namespace dztzPro
         public string LeftMenuContent { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["user"] == null)
+            if (Global.CurrentUser == null)
             {
                 Response.Redirect("login.aspx");
             }

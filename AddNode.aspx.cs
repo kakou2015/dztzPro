@@ -55,9 +55,9 @@ namespace dztzPro
                     LedgerNodeName = LedgerNodeName.Text==""?FileUploadCtrl.FileName:LedgerNodeName.Text,
                     AccessLevel = accessLevel,
                     CreateTime = time,
-                    CreateUser = Global.CurrentUser,
+                    CreateUser = Global.CurrentUser.UserName,
                     ModifyTime = time,
-                    ModifyUser = Global.CurrentUser,
+                    ModifyUser = Global.CurrentUser.UserName,
                     TemplateFileName = FileUploadCtrl.FileName,
                     TemplateContent = templateContent
                 });

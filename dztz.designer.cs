@@ -805,8 +805,6 @@ namespace dztzPro
 		
 		private long _UserId;
 		
-		private long _Department;
-		
 		private string _LoginName;
 		
 		private string _UserName;
@@ -816,6 +814,12 @@ namespace dztzPro
 		private string _MobilePhone;
 		
 		private string _Email;
+		
+		private string _Department;
+		
+		private string _Occupation;
+		
+		private long _Superior;
 		
 		private long _AccessRight;
 		
@@ -835,8 +839,6 @@ namespace dztzPro
     partial void OnCreated();
     partial void OnUserIdChanging(long value);
     partial void OnUserIdChanged();
-    partial void OnDepartmentChanging(long value);
-    partial void OnDepartmentChanged();
     partial void OnLoginNameChanging(string value);
     partial void OnLoginNameChanged();
     partial void OnUserNameChanging(string value);
@@ -847,6 +849,12 @@ namespace dztzPro
     partial void OnMobilePhoneChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
+    partial void OnDepartmentChanging(string value);
+    partial void OnDepartmentChanged();
+    partial void OnOccupationChanging(string value);
+    partial void OnOccupationChanged();
+    partial void OnSuperiorChanging(long value);
+    partial void OnSuperiorChanged();
     partial void OnAccessRightChanging(long value);
     partial void OnAccessRightChanged();
     partial void OnDescriptionChanging(string value);
@@ -866,7 +874,7 @@ namespace dztzPro
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public long UserId
 		{
 			get
@@ -886,27 +894,7 @@ namespace dztzPro
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="BigInt NOT NULL")]
-		public long Department
-		{
-			get
-			{
-				return this._Department;
-			}
-			set
-			{
-				if ((this._Department != value))
-				{
-					this.OnDepartmentChanging(value);
-					this.SendPropertyChanging();
-					this._Department = value;
-					this.SendPropertyChanged("Department");
-					this.OnDepartmentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoginName", DbType="NChar(255) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoginName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
 		public string LoginName
 		{
 			get
@@ -926,7 +914,7 @@ namespace dztzPro
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NChar(255) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
 		public string UserName
 		{
 			get
@@ -946,7 +934,7 @@ namespace dztzPro
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserPassword", DbType="NChar(255) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserPassword", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
 		public string UserPassword
 		{
 			get
@@ -966,7 +954,7 @@ namespace dztzPro
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MobilePhone", DbType="NChar(32)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MobilePhone", DbType="NVarChar(32)")]
 		public string MobilePhone
 		{
 			get
@@ -986,7 +974,7 @@ namespace dztzPro
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NChar(255)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(255)")]
 		public string Email
 		{
 			get
@@ -1002,6 +990,66 @@ namespace dztzPro
 					this._Email = value;
 					this.SendPropertyChanged("Email");
 					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string Department
+		{
+			get
+			{
+				return this._Department;
+			}
+			set
+			{
+				if ((this._Department != value))
+				{
+					this.OnDepartmentChanging(value);
+					this.SendPropertyChanging();
+					this._Department = value;
+					this.SendPropertyChanged("Department");
+					this.OnDepartmentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Occupation", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string Occupation
+		{
+			get
+			{
+				return this._Occupation;
+			}
+			set
+			{
+				if ((this._Occupation != value))
+				{
+					this.OnOccupationChanging(value);
+					this.SendPropertyChanging();
+					this._Occupation = value;
+					this.SendPropertyChanged("Occupation");
+					this.OnOccupationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Superior", DbType="BigInt NOT NULL")]
+		public long Superior
+		{
+			get
+			{
+				return this._Superior;
+			}
+			set
+			{
+				if ((this._Superior != value))
+				{
+					this.OnSuperiorChanging(value);
+					this.SendPropertyChanging();
+					this._Superior = value;
+					this.SendPropertyChanged("Superior");
+					this.OnSuperiorChanged();
 				}
 			}
 		}
@@ -1026,7 +1074,7 @@ namespace dztzPro
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(10)")]
 		public string Description
 		{
 			get
