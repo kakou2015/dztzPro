@@ -9,7 +9,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[AccessLevel](
-	[ALName] [nchar](255) NOT NULL,
+	[ALName] [nvarchar](255) NOT NULL,
 	[ALValue] [bigint] NOT NULL,
  CONSTRAINT [PK_AccessLevel] PRIMARY KEY CLUSTERED 
 (
