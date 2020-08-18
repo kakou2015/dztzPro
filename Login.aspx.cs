@@ -11,7 +11,15 @@ namespace dztzPro
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
+            DztzDataContext dbContext = new DztzDataContext();
+            if (dbContext.Users.Count() == 0)
+			{
+                RegisterBttn.Enabled = true;
+			}
+            else
+            {
+                RegisterBttn.Enabled = true;
+            }
 		}
 
         protected void LoginBttn_Click(object sender, EventArgs e)
@@ -31,6 +39,11 @@ namespace dztzPro
             {
                 Response.Redirect("Login.aspx");
             }
+		}
+
+        protected void RegisterBttn_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("Register.aspx");
 		}
 	}
 }

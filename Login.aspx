@@ -34,6 +34,12 @@
                         <asp:Button ID="LoginBttn" runat="server" Text="登录系统" Width="208px" Height="40" Font-Size="Medium" OnClick="LoginBttn_Click" />
                     </td>
                 </tr>
+                <tr>
+                    <td />
+                    <td>
+                        <asp:Button ID="RegisterBttn" runat="server" Text="注册" Width="208px" Height="40" Font-Size="Medium" OnClick="RegisterBttn_Click" />
+                    </td>
+                </tr>
             </table>
         </div>
     </form>
