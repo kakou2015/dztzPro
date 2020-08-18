@@ -18,7 +18,7 @@ namespace dztzPro
 			}
             else
             {
-                RegisterBttn.Enabled = true;
+                RegisterBttn.Enabled = false;
             }
 		}
 
